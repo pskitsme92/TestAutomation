@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Bug Testing Sprint 15" tests="22" time="1.586">
+  <testsuite name="distanceSonesErr RUTBIL-10377" id="2f8489e9-5e78-482c-a686-73b1d1156eb1" timestamp="2019-09-11T12:30:46.404Z" tests="3" failures="4" errors="0" time="0.198">
+    <testcase name="Schema is valid" time="0.060" classname="BugTestingSprint15"/>
+    <testcase name="Test nr of Zones " time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="Cannot read property '0' of undefined">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: distanceSonesErr RUTBIL-10377.]]>
+        <![CDATA[Test description: Test nr of Zones .]]>
+        <![CDATA[Error message: Cannot read property '0' of undefined.]]>
+        <![CDATA[Stacktrace: TypeError: Cannot read property '0' of undefined
+   at Object.eval sandbox-script.js:2:1).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 200" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: distanceSonesErr RUTBIL-10377.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:3:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="order ruter 1z NYBIL-507" id="2934a2c1-b05c-4b56-a47f-fef757680789" timestamp="2019-09-11T12:30:46.404Z" tests="1" failures="2" errors="0" time="0.062">
+    <testcase name="Status code is 202" time="0.062" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: order ruter 1z NYBIL-507.]]>
+        <![CDATA[Test description: Status code is 202.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL-454::TraceID på asynchrone operationer PaymentRef" id="199f2c6d-29bb-4481-b016-e21b47f9cf5b" timestamp="2019-09-11T12:30:46.404Z" tests="4" failures="8" errors="0" time="0.060">
+    <testcase name="Schema is valid" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be true">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-454::TraceID på asynchrone operationer PaymentRef.]]>
+        <![CDATA[Test description: Schema is valid.]]>
+        <![CDATA[Error message: expected false to be true.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be true
+   at Object.eval sandbox-script.js:1:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response contains paymentRef" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected '{&quot;messageCode&quot;:&quot;BAD_REQUEST&quot;,&quot;description&quot;:&quot;\'InstanceID\' not valid&quot;}' to include 'f6ca60b6-d250-4f7c-8c1d-f5c851851cae'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-454::TraceID på asynchrone operationer PaymentRef.]]>
+        <![CDATA[Test description: Response contains paymentRef.]]>
+        <![CDATA[Error message: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include 'f6ca60b6-d250-4f7c-8c1d-f5c851851cae'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include 'f6ca60b6-d250-4f7c-8c1d-f5c851851cae'
+   at Object.eval sandbox-script.js:2:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response contains traceID" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected '{&quot;messageCode&quot;:&quot;BAD_REQUEST&quot;,&quot;description&quot;:&quot;\'InstanceID\' not valid&quot;}' to include undefined">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-454::TraceID på asynchrone operationer PaymentRef.]]>
+        <![CDATA[Test description: Response contains traceID.]]>
+        <![CDATA[Error message: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include undefined.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include undefined
+   at Object.eval sandbox-script.js:3:3).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 200" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-454::TraceID på asynchrone operationer PaymentRef.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:4:3).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL454::Tell apita that cardinfo is sent to Nets Done" id="d3852f1c-04c2-412e-990e-51a32e81a309" timestamp="2019-09-11T12:30:46.404Z" tests="2" failures="4" errors="0" time="0.064">
+    <testcase name="Response contains traceID" time="0.067" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected '{&quot;messageCode&quot;:&quot;BAD_REQUEST&quot;,&quot;description&quot;:&quot;\'InstanceID\' not valid&quot;}' to include undefined">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454::Tell apita that cardinfo is sent to Nets Done.]]>
+        <![CDATA[Test description: Response contains traceID.]]>
+        <![CDATA[Error message: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include undefined.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include undefined
+   at Object.eval sandbox-script.js:1:4).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 200" time="0.067" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454::Tell apita that cardinfo is sent to Nets Done.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:2:4).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL454:Get references from server " id="54794299-5748-4f2e-9d4b-2ea0f4493f55" timestamp="2019-09-11T12:30:46.404Z" tests="4" failures="8" errors="0" time="0.060">
+    <testcase name="Schema is valid" time="0.062" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be true">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454:Get references from server .]]>
+        <![CDATA[Test description: Schema is valid.]]>
+        <![CDATA[Error message: expected false to be true.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be true
+   at Object.eval sandbox-script.js:1:5).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response contains paymentRef" time="0.062" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected '{&quot;messageCode&quot;:&quot;BAD_REQUEST&quot;,&quot;description&quot;:&quot;\'InstanceID\' not valid&quot;}' to include 'f6ca60b6-d250-4f7c-8c1d-f5c851851cae'">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454:Get references from server .]]>
+        <![CDATA[Test description: Response contains paymentRef.]]>
+        <![CDATA[Error message: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include 'f6ca60b6-d250-4f7c-8c1d-f5c851851cae'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include 'f6ca60b6-d250-4f7c-8c1d-f5c851851cae'
+   at Object.eval sandbox-script.js:2:5).]]>
+      </failure>
+    </testcase>
+    <testcase name="Response contains traceID" time="0.062" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected '{&quot;messageCode&quot;:&quot;BAD_REQUEST&quot;,&quot;description&quot;:&quot;\'InstanceID\' not valid&quot;}' to include undefined">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454:Get references from server .]]>
+        <![CDATA[Test description: Response contains traceID.]]>
+        <![CDATA[Error message: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include undefined.]]>
+        <![CDATA[Stacktrace: AssertionError: expected '{"messageCode":"BAD_REQUEST","description":"\'InstanceID\' not valid"}' to include undefined
+   at Object.eval sandbox-script.js:3:5).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 200" time="0.062" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454:Get references from server .]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:4:5).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL454::ticket confirm" id="01e90bd6-91a9-497a-99ed-cbd94726cb31" timestamp="2019-09-11T12:30:46.404Z" tests="1" failures="2" errors="0" time="0.059">
+    <testcase name="Status code is 202" time="0.059" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454::ticket confirm.]]>
+        <![CDATA[Test description: Status code is 202.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:1:6).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL454::ticket cancel" id="727ee6b0-27c4-4d0d-a4f1-67a134d3d723" timestamp="2019-09-11T12:30:46.404Z" tests="1" failures="2" errors="0" time="0.058">
+    <testcase name="Status code is 202" time="0.057" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454::ticket cancel.]]>
+        <![CDATA[Test description: Status code is 202.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:1:7).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL-515::stop/109/closest Copy" id="958f8621-ad49-46b0-ac61-922057df16ca" timestamp="2019-09-11T12:30:46.404Z" tests="2" failures="4" errors="0" time="0.058">
+    <testcase name="Schema is valid" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be true">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-515::stop/109/closest Copy.]]>
+        <![CDATA[Test description: Schema is valid.]]>
+        <![CDATA[Error message: expected false to be true.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be true
+   at Object.eval sandbox-script.js:1:8).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 200" time="0.060" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-515::stop/109/closest Copy.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:2:8).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL-511::ClosestStops andre transport" id="7f50ac71-feab-4695-9b0f-933e0d31eb41" timestamp="2019-09-11T12:30:46.404Z" tests="2" failures="4" errors="0" time="0.058">
+    <testcase name="Schema is valid" time="0.057" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be true">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-511::ClosestStops andre transport.]]>
+        <![CDATA[Test description: Schema is valid.]]>
+        <![CDATA[Error message: expected false to be true.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be true
+   at Object.eval sandbox-script.js:1:9).]]>
+      </failure>
+    </testcase>
+    <testcase name="Status code is 200" time="0.057" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL-511::ClosestStops andre transport.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:2:9).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="NYBIL454::ticket Refernce_cancel" id="c14c3dd7-1962-441b-ac5f-ab93165a4fdf" timestamp="2019-09-11T12:30:46.404Z" tests="1" failures="2" errors="0" time="0.059">
+    <testcase name="Status code is 202" time="0.061" classname="BugTestingSprint15">
+      <failure type="AssertionFailure" message="expected false to be truthy">
+        <![CDATA[Failed 2 times.]]>
+        <![CDATA[Collection JSON ID: dcafab39-4948-4cd3-b77d-ed73a55cd931.]]>
+        <![CDATA[Collection name: Bug Testing Sprint 15.]]>
+        <![CDATA[Request name: NYBIL454::ticket Refernce_cancel.]]>
+        <![CDATA[Test description: Status code is 202.]]>
+        <![CDATA[Error message: expected false to be truthy.]]>
+        <![CDATA[Stacktrace: AssertionError: expected false to be truthy
+   at Object.eval sandbox-script.js:1:10).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="TestCurrentTimePM90s" id="0c99e477-9766-4630-9476-d20f580c12e7" timestamp="2019-09-11T12:30:46.404Z" tests="0" failures="0" errors="0" time="0.057"/>
+</testsuites>

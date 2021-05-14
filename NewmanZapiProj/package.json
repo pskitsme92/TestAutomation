@@ -1,0 +1,21 @@
+{
+  "name": "submitnewmantest2ephyr",
+  "version": "1.0.0",
+  "description": "Takes JSON newman output and uploads to your qTest project",
+  "main": "newmanZapi.js",
+  "scripts": {
+    "setup": "npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "express": "^4.17.1",
+    "newman": "^4.5.5",
+    "newman-reporter-junitfull": "^1.1.1",
+    "node-uuid": "^1.4.8",
+    "promise": "^8.0.1",
+    "request": "^2.85.0"
+  }
+}

@@ -1,0 +1,84 @@
+{
+	"id": "f202ac57-7fbd-424a-8daf-9f8740a86a84",
+	"values": [
+		{
+			"key": "mcid",
+			"value": "D-ReferenceModel-19-01-16-15-52",
+			"enabled": false
+		},
+		{
+			"key": "repositoryID",
+			"value": "candidate-model",
+			"enabled": false
+		},
+		{
+			"key": "graphDbId",
+			"value": "mercury",
+			"enabled": false
+		},
+		{
+			"key": "orcProcess",
+			"value": "\"cgmesGeneration\"",
+			"enabled": false
+		},
+		{
+			"key": "orcJob",
+			"value": "\"gen-IGM\"",
+			"enabled": false
+		},
+		{
+			"key": "projectId",
+			"value": "11401",
+			"enabled": false
+		},
+		{
+			"key": "versionId",
+			"value": "13195",
+			"enabled": false
+		},
+		{
+			"key": "GlobalSetUpOK",
+			"value": "0",
+			"enabled": false
+		},
+		{
+			"key": "GlobalMMSetUpOK",
+			"value": "0",
+			"enabled": false
+		},
+		{
+			"key": "GlobalMDSetUpOK",
+			"value": "0",
+			"enabled": false
+		},
+		{
+			"key": "GlobalGDBSetUpOK",
+			"value": "0",
+			"enabled": false
+		},
+		{
+			"key": "GlobalORCSetUpOK",
+			"value": "0",
+			"enabled": false
+		},
+		{
+			"key": "timestamp",
+			"value": "2019-10-08T10:45:51.456Z",
+			"enabled": true
+		},
+		{
+			"key": "APIKEY",
+			"value": "PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4",
+			"enabled": true
+		},
+		{
+			"key": "c_uid",
+			"value": "e0971308-dcdf-46d2-b3a1-0b66df344f0b",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2019-10-08T13:25:20.855Z",
+	"_postman_exported_using": "Postman/7.8.0"
+}

@@ -1,0 +1,12 @@
+{
+    "email": "pierre.elkhoury@ruter.no",
+    "baseURL" : "https://jira.ruter.no",
+    "zapiUrl" : "/rest/zapi/latest",     	    
+    "createCycleURL" : "/cycle",
+    "addTestsToCycleURL" : "/execution/addTestsToCycle",
+    "GetSearchClausesURL": "/zql/clauses", 
+    "zapiUserName": "test.manager",
+    "zapiPassword": "zapipassword",	    
+    "projectId" : 14660,
+    "versionId" : 21191
+}   
