@@ -1,0 +1,14 @@
+version: '3'
+services:
+  newman_ubuntu1404:
+    image: postman/newman_ubuntu1404
+  newmanZapi:
+    image: node:11
+    volumes:
+      - ./NewmanZapiProj:/newmanzapiproj   
+    command: bash -c "npm install -g newman-reporter-junitfull && npm install && npm run newmanZapi"
+
+
+
+
+ 

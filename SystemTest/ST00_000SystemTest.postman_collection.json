@@ -1,0 +1,5288 @@
+{
+	"info": {
+		"_postman_id": "47466d8a-ece3-4090-9c8a-3c1cba3a19a1",
+		"name": "System Test",
+		"description": "Group all ralevent test for system tes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ST00_0APITA.ping",
+			"item": [
+				{
+					"name": "instance",
+					"item": [
+						{
+							"name": "Create instance",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c6faf76d-7ca0-487a-a1fa-8f3ede96c9ef",
+										"exec": [
+											"postman.clearEnvironmentVariable(\"instanceId\");",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"postman.setEnvironmentVariable(\"instanceId\", jsonData.instanceId);",
+											"postman.setEnvironmentVariable(\"instanceName\", jsonData.instanceName);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "{{language}}",
+										"type": "text"
+									},
+									{
+										"key": "AppPlatform",
+										"value": "{{platform}}",
+										"type": "text"
+									},
+									{
+										"key": "AppVersionName",
+										"value": "{{appversion}}",
+										"type": "text"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{timestamp}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cloudMessageToken\":\"\",\r\n    \"phoneType\":\"LG Nexus 5\",\r\n    \"phoneHash\": \"\",\r\n    \"appTypeId\":1,\r\n    \"screenWidth\":320\r\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/instance",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"instance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notificationSettings/tickets",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/instance/notificationSettings/tickets",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"instance",
+										"notificationSettings",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "notificationSettings/tickets",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"id\": 2,\r\n    \"selected\": null  \r\n  }\r\n]"
+								},
+								"url": {
+									"raw": "{{baseurl}}/instance/notificationSettings/tickets",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"instance",
+										"notificationSettings",
+										"tickets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "paymentLimit",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/instance/paymentLimit",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"instance",
+										"paymentLimit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "paymentLimit",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"userLimit\" : 77\r\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/instance/paymentLimit",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"instance",
+										"paymentLimit"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "zone",
+					"item": [
+						{
+							"name": "zone/3",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e0f1dceb-7010-4923-bfef-432f5c24e606",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"type\" : \"array\",",
+											"    \"items\" : {",
+											"        \"type\" : \"object\",",
+											"        \"properties\" : {",
+											"            \"ownerId\" : {\"type\" : \"number\"},",
+											"            \"sortOrder\" : {\"type\" : \"number\"},",
+											"            \"zoneId\" : {\"type\" : \"string\"},",
+											"            \"zoneName\" : {\"type\" : \"string\"}",
+											"        }",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "{{language}}",
+										"type": "text"
+									},
+									{
+										"key": "AppPlatform",
+										"value": "{{platform}}",
+										"type": "text"
+									},
+									{
+										"key": "AppVersionName",
+										"value": "{{appversion}}",
+										"type": "text"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"value": "{{instanceId}}",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/zone/3",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"zone",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "zone adjacent",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e0f1dceb-7010-4923-bfef-432f5c24e606",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"type\" : \"array\",",
+											"    \"items\" : {",
+											"        \"type\" : \"object\",",
+											"        \"properties\" : {",
+											"            \"ownerId\" : {\"type\" : \"number\"},",
+											"            \"zoneId\" : {\"type\" : \"string\"},",
+											"            \"zoneName\" : {\"type\" : \"string\"}",
+											"        }",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "{{language}}",
+										"type": "text"
+									},
+									{
+										"key": "AppPlatform",
+										"value": "{{platform}}",
+										"type": "text"
+									},
+									{
+										"key": "AppVersionName",
+										"value": "{{appversion}}",
+										"type": "text"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"value": "{{instanceId}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseurl}}/zone/3/adjacent?zoneId=RUT:TariffZone:227",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"zone",
+										"3",
+										"adjacent"
+									],
+									"query": [
+										{
+											"key": "zoneId",
+											"value": "RUT:TariffZone:227"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "stop",
+					"item": [
+						{
+							"name": "stop",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "89fb42d5-7a1d-4ce8-b20e-1f202c53cdf3",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"type\" : \"array\",",
+											"    \"items\" : {",
+											"        \"type\" : \"object\",",
+											"        \"properties\" : {",
+											"            \"ownerId\" : {\"type\" : \"number\"},",
+											"            \"municipalityName\" : {\"type\" : \"string\"},",
+											"            \"stopId\" : {\"type\" : \"string\"},",
+											"            \"stopName\" : {\"type\" : \"string\"},",
+											"            \"zoneId\" : {\"type\" : \"string\"},",
+											"            \"transportMode\" : {\"type\" : \"string\"}",
+											"        }",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "{{language}}",
+										"type": "text"
+									},
+									{
+										"key": "AppPlatform",
+										"value": "{{platform}}",
+										"type": "text"
+									},
+									{
+										"key": "AppVersionName",
+										"value": "{{appversion}}",
+										"type": "text"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"value": "{{instanceId}}",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/stop/500",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"stop",
+										"500"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "stop/109/closest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"type\" : \"array\",",
+											"    \"items\" : {",
+											"        \"type\" : \"object\",",
+											"        \"properties\" : {",
+											"            \"ownerId\" : {\"type\" : \"number\"},",
+											"            \"municipalityName\" : {\"type\" : \"string\"},",
+											"            \"stopId\" : {\"type\" : \"string\"},",
+											"            \"stopName\" : {\"type\" : \"string\"},",
+											"            \"zoneId\" : {\"type\" : \"string\"},",
+											"            \"transportMode\" : {\"type\" : \"string\"}",
+											"        }",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/stop/109/closest?longitude=6.659553&latitude=58.298064",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"stop",
+										"109",
+										"closest"
+									],
+									"query": [
+										{
+											"key": "longitude",
+											"value": "6.659553"
+										},
+										{
+											"key": "latitude",
+											"value": "58.298064"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "price",
+					"item": [
+						{
+							"name": "price",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4f78b9bd-705a-4679-a9c1-9abe26832414",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"items\" : {",
+											"        \"type\" : \"object\",",
+											"        \"properties\" : {",
+											"            \"prices\" : {",
+											"                \"type\" : \"array\",",
+											"                \"items\" : {",
+											"                    \"type\" : \"object\",",
+											"                    \"properties\" : {",
+											"                        \"nrOfZones\" : {\"type\":\"number\"},",
+											"                        \"price\" : {\"type\":\"number\"}",
+											"                    }",
+											"                }",
+											"            }",
+											"            ",
+											"        }",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "{{language}}",
+										"type": "text"
+									},
+									{
+										"key": "AppPlatform",
+										"value": "{{platform}}",
+										"type": "text"
+									},
+									{
+										"key": "AppVersionName",
+										"value": "{{appversion}}",
+										"type": "text"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"value": "{{instanceId}}",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/price?productId=21526&productId=21531",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"price"
+									],
+									"query": [
+										{
+											"key": "productId",
+											"value": "21526"
+										},
+										{
+											"key": "productId",
+											"value": "21531"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "distance",
+					"item": [
+						{
+							"name": "distance/3/1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"properties\" : {",
+											"        \"alternatives\" : {",
+											"            \"type\" : \"array\"",
+											"        },",
+											"        \"profiles\" : {",
+											"            \"type\" : \"array\"",
+											"        }",
+											"        ",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/distance/3/1/?zoneIdFrom=RUT:TariffZone:227&zoneIdTo=RUT:TariffZone:228&orderType=MOBILETICKET&validallzones=false",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"distance",
+										"3",
+										"1",
+										""
+									],
+									"query": [
+										{
+											"key": "zoneIdFrom",
+											"value": "RUT:TariffZone:227"
+										},
+										{
+											"key": "zoneIdTo",
+											"value": "RUT:TariffZone:228"
+										},
+										{
+											"key": "orderType",
+											"value": "MOBILETICKET"
+										},
+										{
+											"key": "validallzones",
+											"value": "false"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "distance/3/2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"properties\" : {",
+											"        \"alternatives\" : {",
+											"            \"type\" : \"array\"",
+											"        },",
+											"        \"profiles\" : {",
+											"            \"type\" : \"array\"",
+											"        }",
+											"        ",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/distance/3/2/?zoneIdFrom=RUT:TariffZone:225&zoneIdTo=RUT:TariffZone:233&orderType=PREPURCHASE&validallzones=true",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"distance",
+										"3",
+										"2",
+										""
+									],
+									"query": [
+										{
+											"key": "zoneIdFrom",
+											"value": "RUT:TariffZone:225"
+										},
+										{
+											"key": "zoneIdTo",
+											"value": "RUT:TariffZone:233"
+										},
+										{
+											"key": "orderType",
+											"value": "PREPURCHASE"
+										},
+										{
+											"key": "validallzones",
+											"value": "true"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "distance/500/1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"    \"properties\" : {",
+											"        \"alternatives\" : {",
+											"            \"type\" : \"array\"",
+											"        },",
+											"        \"profiles\" : {",
+											"            \"type\" : \"array\"",
+											"        }",
+											"        ",
+											"    }",
+											"  ",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/distance/500/11/?orderType=MOBILETICKET&zoneIdFrom=KOL:TariffZone:452&zoneIdTo=KOL:TariffZone:452",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"distance",
+										"500",
+										"11",
+										""
+									],
+									"query": [
+										{
+											"key": "orderType",
+											"value": "MOBILETICKET"
+										},
+										{
+											"key": "zoneIdFrom",
+											"value": "KOL:TariffZone:452"
+										},
+										{
+											"key": "zoneIdTo",
+											"value": "KOL:TariffZone:452"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "https://ruterwiki.ruter.no/display/SBCORE/distance",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "239a5acd-5ae8-4388-a786-fffd6dbe3139",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "cfbedadf-7fce-4016-bff9-fb2cae4ee000",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "action",
+					"item": [
+						{
+							"name": "action/190",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"",
+											"var schema = {",
+											"  \"items\": {",
+											"    \"type\": \"object\",",
+											"    \"properties\" : {",
+											"        \"childFreeWeekend\" : {",
+											"            \"type\" : \"boolean\"",
+											"        },",
+											"        \"desc\" : {",
+											"            \"type\" : \"string\"",
+											"        }",
+											"        ",
+											"    }",
+											"  }",
+											"};",
+											"",
+											"pm.test('Schema is valid', function() {",
+											"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/action/190",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"action",
+										"190"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "appversioninfo",
+					"item": [
+						{
+							"name": "refresh appversions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c6faf76d-7ca0-487a-a1fa-8f3ede96c9ef",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"value": "{{language}}",
+										"type": "text"
+									},
+									{
+										"key": "AppPlatform",
+										"value": "{{platform}}",
+										"type": "text"
+									},
+									{
+										"key": "AppVersionName",
+										"value": "{{appversion}}",
+										"type": "text"
+									},
+									{
+										"key": "OsVersion",
+										"value": "{{osversion}}",
+										"type": "text"
+									},
+									{
+										"key": "CurrentTime",
+										"value": "{{current_time}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "InstanceId",
+										"value": "{{instanceId}}",
+										"type": "text"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"cloudMessageToken\":\"\",\r\n    \"phoneType\":\"LG Nexus 5\",\r\n    \"phoneHash\": \"\",\r\n    \"appTypeId\":1,\r\n    \"screenWidth\":320\r\n}"
+								},
+								"url": {
+									"raw": "{{baseurl}}/appversioninfo/refresh",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"appversioninfo",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "appversioninfo",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"type": "text",
+										"value": "{{osversion}}"
+									},
+									{
+										"key": "CurrentTime",
+										"type": "text",
+										"value": "{{current_time}}"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									},
+									{
+										"key": "ApiAuth",
+										"value": "{{apiauth}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/appversioninfo/",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"appversioninfo",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "04575f5d-1ea1-42e1-be56-78baecc508a5",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"object\",",
+									"    \"properties\" : {",
+									"        \"products\" : {",
+									"            \"type\" : \"array\",",
+									"            \"minItems\" : 1",
+									"        },",
+									"        \"productOwners\" : {",
+									"            \"type\" : \"array\",",
+									"            \"minItems\" : 7",
+									"        }",
+									"    }",
+									"",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/products",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"object\",",
+									"    \"properties\" : {",
+									"        \"appVersionInfo\" : { ",
+									"            \"type\" : \"object\",",
+									"            \"properties\" : {",
+									"                \"recommendedVersion\" : {\"type\" : \"string\"},",
+									"                \"requiredVersion\" : {\"type\" : \"string\"}",
+									"                ",
+									"            }",
+									"            ",
+									"        }",
+									"    }",
+									"",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/status",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send to MQTT-topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"topic\" : \"{{instanceId}}/ticket\",\n\t\"message\" : \"{\\\"ticketRef\\\":\\\"tusj\\\", \\\"foo\\\":\\\"blah\\\"}\"\n}"
+						},
+						"url": {
+							"raw": "https://apita-mqtt-sender.dev.transhub.io/send",
+							"protocol": "https",
+							"host": [
+								"apita-mqtt-sender",
+								"dev",
+								"transhub",
+								"io"
+							],
+							"path": [
+								"send"
+							]
+						},
+						"description": "\"message\" can take any data, will be posted raw to given topic name. May need to escape."
+					},
+					"response": []
+				},
+				{
+					"name": "passengerCategory",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"array\",",
+									"    \"items\" : {",
+									"        \"type\" : \"object\", ",
+									"        \"properties\" : {",
+									"            \"profileText\" : {",
+									"                \"type\" : \"array\"",
+									"            },",
+									"            \"productOwnerId\" : {",
+									"                \"type\" : \"number\"",
+									"            },",
+									"            \"profiles\" : {",
+									"                \"type\" : \"array\",",
+									"                \"items\" : {",
+									"                    \"type\" : \"object\",",
+									"                    \"properties\" : {",
+									"                        \"descriptions\" : {",
+									"                            \"type\" : \"array\",",
+									"                            \"items\" : {",
+									"                                \"type\" : \"object\",",
+									"                                \"properties\" : {",
+									"                                    \"actionId\" : {\"type\" : \"number\"},",
+									"                                    \"description\" : {\"type\" : \"string\"}",
+									"                                    ",
+									"                                }",
+									"                                ",
+									"                            }",
+									"                        },",
+									"                        \"id\" : {\"type\" : \"number\"}",
+									"                    }",
+									"",
+									"                }",
+									"            }",
+									"        }",
+									"    }",
+									"",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"",
+									"if(tv4.error){console.log(tv4.error)}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/passengerCategory",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"passengerCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/profile",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paymentReference",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/paymentReference",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "paymentMethod",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"array\",",
+									"    \"items\" : {",
+									"        \"properties\" : {",
+									"            \"methodOfPayment\" : { \"type\" : \"string\" },",
+									"            \"displayName\" : { \"type\" : \"string\" },",
+									"            \"sortOrder\" : { \"type\" : \"number\" }",
+									"        }",
+									"    },",
+									"    \"minItems\" : 1",
+									"",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/paymentMethod",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentMethod"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ST01_0APITA.register.card.And.buy.ticket",
+			"item": [
+				{
+					"name": "Create instance",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6faf76d-7ca0-487a-a1fa-8f3ede96c9ef",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"instanceId\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 200;",
+									"",
+									"postman.setEnvironmentVariable(\"instanceId\", jsonData.instanceId);",
+									"postman.setEnvironmentVariable(\"instanceName\", jsonData.instanceName);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cloudMessageToken\":\"\",\r\n    \"phoneType\":\"LG Nexus 5\",\r\n    \"phoneHash\": \"\",\r\n    \"appTypeId\":1,\r\n    \"screenWidth\":320\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/instance",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"instance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c6faf76d-7ca0-487a-a1fa-8f3ede96c9ef",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\" : \"1234\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/instance/password",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"instance",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MQTT Register App",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a851979e-5a95-43cf-9d0d-71115eb8c2a7",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apita-testclient.dev.transhub.io/register/{{instanceId}}",
+							"protocol": "https",
+							"host": [
+								"apita-testclient",
+								"dev",
+								"transhub",
+								"io"
+							],
+							"path": [
+								"register",
+								"{{instanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initiate card save",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f186265c-2280-47fe-9c42-a3f179558880",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 202;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"methodOfPayment\": \"VISA\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/paymentReference",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MQTT hent paymentAction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"paymentRef\");",
+									"postman.clearEnvironmentVariable(\"urlPaymentSite\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"pm.test(\"Response includes paymentRef\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"paymentRef\");",
+									"});",
+									"",
+									"var one = JSON.parse(jsonData[0]);",
+									"",
+									"postman.setEnvironmentVariable(\"paymentRef\", one.content.paymentRef);",
+									"postman.setEnvironmentVariable(\"urlPaymentSite\", one.content.urlPaymentSite);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "047a5dec-d826-4814-97ca-24caf811d813",
+								"exec": [
+									"setTimeout(function(){console.log('waiting a second')}, 1000);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+							"protocol": "https",
+							"host": [
+								"apita-testclient",
+								"dev",
+								"transhub",
+								"io"
+							],
+							"path": [
+								"get",
+								"{{instanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Load Nets-page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d623be0c-0d04-45db-9a93-099af5c951d8",
+								"exec": [
+									"postman.clearEnvironmentVariable(\"__VIEWSTATE\");",
+									"postman.clearEnvironmentVariable(\"__VIEWSTATEGENERATOR\");",
+									"postman.clearEnvironmentVariable(\"__EVENTVALIDATION\");",
+									"postman.clearEnvironmentVariable(\"__EVENTTARGET\");",
+									"",
+									"",
+									"var html = cheerio(responseBody),",
+									"__VIEWSTATE = html.find('#__VIEWSTATE').attr('value'),",
+									"__VIEWSTATEGENERATOR = html.find('#__VIEWSTATEGENERATOR').attr('value'),",
+									"__EVENTVALIDATION = html.find('#__EVENTVALIDATION').attr('value'),",
+									"__EVENTTARGET = html.find('#okButton').attr('name');",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"",
+									"postman.setEnvironmentVariable(\"__VIEWSTATE\", __VIEWSTATE);",
+									"postman.setEnvironmentVariable(\"__VIEWSTATEGENERATOR\", __VIEWSTATEGENERATOR);",
+									"postman.setEnvironmentVariable(\"__EVENTVALIDATION\", __EVENTVALIDATION);",
+									"postman.setEnvironmentVariable(\"__EVENTTARGET\", __EVENTTARGET);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b4fb8df8-310f-46ab-9025-7e93924f4f04",
+								"exec": [
+									"setTimeout(function(){console.log('waiting a second')}, 5000);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.56 Safari/537.36",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,nb;q=0.8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{urlPaymentSite}}",
+							"host": [
+								"{{urlPaymentSite}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit card info Nets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5df94d79-6973-401d-9d83-f80a754e28a7",
+								"exec": [
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0c8623da-3a72-46d4-8e7a-ae1106e863af",
+								"exec": [
+									"setTimeout(function(){console.log('waiting a second')}, 5000);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Referer",
+								"value": "{{urlPaymentSite}}",
+								"type": "text"
+							},
+							{
+								"key": "Origin",
+								"value": "https://test.epayment.nets.eu",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.56 Safari/537.36",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9,nb;q=0.8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "__LASTFOCUS",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "__EVENTTARGET",
+									"value": "{{__EVENTTARGET}}",
+									"type": "text"
+								},
+								{
+									"key": "__EVENTARGUMENT",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "__VIEWSTATE",
+									"value": "{{__VIEWSTATE}}",
+									"type": "text"
+								},
+								{
+									"key": "__VIEWSTATEGENERATOR",
+									"value": "{{__VIEWSTATEGENERATOR}}",
+									"type": "text"
+								},
+								{
+									"key": "__VIEWSTATEENCRYPTED",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "__EVENTVALIDATION",
+									"value": "{{__EVENTVALIDATION}}",
+									"type": "text"
+								},
+								{
+									"key": "ctl09$cardNumber",
+									"value": "4925000000000004",
+									"type": "text"
+								},
+								{
+									"key": "ctl09$month",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "ctl09$year",
+									"value": "19",
+									"type": "text"
+								},
+								{
+									"key": "ctl09$securityCode",
+									"value": "111",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{urlPaymentSite}}",
+							"host": [
+								"{{urlPaymentSite}}"
+							]
+						},
+						"description": "OBS! krever at f.eks 127.0.0.1 ok.ruter.no finnes i etc/hosts"
+					},
+					"response": []
+				},
+				{
+					"name": "Tell apita that cardinfo is sent to Nets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17b69054-85b5-46d6-9ce2-acf9ee3c4ab1",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202; //should be 202 when sync implementation is removed",
+									"",
+									"pm.test(\"traceId is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"paymentRef\": \"{{paymentRef}}\",\n    \"methodOfPayment\": \"VISA\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/paymentReference/done",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference",
+								"done"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MQTT hent paymentReference",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+								"exec": [
+									"//postman.clearEnvironmentVariable(\"paymentRef\");",
+									"//postman.clearEnvironmentVariable(\"urlPaymentSite\");",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"pm.test(\"Response includes paymentRef\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"paymentRef\");",
+									"});",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"var one = JSON.parse(jsonData[0]);",
+									"",
+									"postman.setEnvironmentVariable(\"paymentRef\", one.content.paymentRef);",
+									"postman.setEnvironmentVariable(\"urlPaymentSite\", one.content.urlPaymentSite);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e9747257-6259-443c-b179-1ec4c5669e3c",
+								"exec": [
+									"setTimeout(function(){console.log('waiting a second')}, 1000);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+							"protocol": "https",
+							"host": [
+								"apita-testclient",
+								"dev",
+								"transhub",
+								"io"
+							],
+							"path": [
+								"get",
+								"{{instanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get references from server",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d8687d5a-8723-4227-98f1-19e07ffb0d5b",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"var schema = {",
+									"  \"type\" : \"array\",",
+									"  \"minItems\" : 1,",
+									"  \"items\": {",
+									"    \"type\": \"object\",",
+									"    \"properties\" : {",
+									"        \"expirationDate\" : {\"type\" : \"string\"},",
+									"        \"methodOfPayment\" : {\"type\" : \"string\"},",
+									"        \"paymentRef\" : {\"type\" : \"string\"},",
+									"        \"createdDate\" : {\"type\" : \"string\"},",
+									"        \"paymentRefName\" : {\"type\" : \"string\"}",
+									"    }",
+									"  }",
+									"};",
+									"",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+									"});",
+									"",
+									"pm.test('Response contains paymentRefName',function(){",
+									"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"paymentRef\"));    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/paymentReference",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order enk az",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9a560809-7e81-42b3-b781-91855563c5cc",
+								"exec": [
+									"var d = new Date();",
+									"pm.environment.set(\"startDate\", d.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7960d996-54c9-45c9-93de-4a36bafe7d58",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									"",
+									"pm.environment.set(\"MQTTCounter\", \"1\"); //used for retries in fetching ticketRef from MQTT",
+									"",
+									"pm.test(\"TraceId returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ticketDistributionType\" : \"MOBILETICKET\",\r\n\t\"actionId\" : 1,\r\n\t\"paymentMethod\" : \"VISA\",\r\n\t\"paymentReference\" : \"{{paymentRef}}\",\r\n\t\"savePaymentInfo\": true,\r\n\t\"startDate\" : \"{{startDate}}\",\r\n\t\"nrOfZones\" : 5,\r\n\t\"validAllZones\" : true,\r\n\t\"passengers\" : [{\r\n\t\t\t\"profileId\" : 4,\r\n\t\t\t\"productId\" : 21536,\r\n\t\t\t\"nrOfPassengers\" : 2\r\n\t\t},{\r\n\t\t\t\"profileId\" : 2,\r\n\t\t\t\"productId\" : 21531,\r\n\t\t\t\"nrOfPassengers\" : 1\r\n\t\t}\r\n\t],\r\n\t\"amount\" : 122.00\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/order",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Order single ticket to start now"
+					},
+					"response": []
+				},
+				{
+					"name": "MQTT hent ticketRef",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+								"exec": [
+									"if((responseCode.code === 200) && ( pm.expect(pm.response.text()).to.include(\"ticketRef\"))) //or any other success condition",
+									"{",
+									"",
+									"    postman.clearEnvironmentVariable(\"ticketRef\");",
+									"    ",
+									"   ",
+									"    ",
+									"    pm.test(\"Response contains ticketRef\", function () {",
+									"        pm.expect(pm.response.text()).to.include(\"ticketRef\");",
+									"    });",
+									"",
+									"    var jsonData = JSON.parse(responseBody);",
+									"",
+									"    postman.setEnvironmentVariable(\"ticketRef\", JSON.parse(jsonData[0]).ticketRef);",
+									"",
+									"    postman.setNextRequest('fetch ticket');",
+									"    ",
+									"}",
+									"else",
+									"{",
+									"    var counter = parseInt(postman.getEnvironmentVariable(\"MQTTCounter\"))+1;",
+									"    if(counter>4){",
+									"        console.log(\"Too many tries, bailing out\");",
+									"        postman.setNextRequest(null);",
+									"    }",
+									"    ",
+									"    postman.setEnvironmentVariable(\"MQTTCounter\", counter);",
+									"    tests[\"ticketRef not found, trying again\"] = true; //fake test for info",
+									"    ",
+									"    setTimeout(function(){",
+									"        console.log('waiting a second');",
+									"        postman.setNextRequest('MQTT hent ticketRef');",
+									"    }, 1000);",
+									"    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f91121dd-1e24-4398-8447-6e8ae72fe32a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+							"protocol": "https",
+							"host": [
+								"apita-testclient",
+								"dev",
+								"transhub",
+								"io"
+							],
+							"path": [
+								"get",
+								"{{instanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch ticket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"pm.test(\"Ticket id is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"ticketId\");",
+									"});",
+									"pm.test(\"qrCode is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"qrCode\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eb35f5c3-9041-4f3b-ae32-77db39cbf820",
+								"exec": [
+									"var d = new Date();",
+									"",
+									"pm.environment.set(\"currentTime\", d.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ticket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24aac8e8-52ff-4e03-8d25-31b92ea4c45e",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6c62c833-831c-460f-8db0-81ae076fef36",
+								"exec": [
+									"var d = new Date();",
+									"",
+									"pm.environment.set(\"currentTime\", d.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-557:GetProfileShouldIncludePhoneNumber",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9a560809-7e81-42b3-b781-91855563c5cc",
+								"exec": [
+									"var d = new Date();",
+									"pm.environment.set(\"startDate\", d.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7960d996-54c9-45c9-93de-4a36bafe7d58",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									"",
+									"pm.environment.set(\"MQTTCounter\", \"1\"); //used for retries in fetching ticketRef from MQTT",
+									"",
+									"pm.test(\"TraceId returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ticketDistributionType\" : \"MOBILETICKET\",\r\n\t\"actionId\" : 1,\r\n\t\"paymentMethod\" : \"VISA\",\r\n\t\"paymentReference\" : \"{{paymentRef}}\",\r\n\t\"startDate\" : \"{{startDate}}\",\r\n\t\"nrOfZones\" : 5,\r\n\t\"validAllZones\" : true,\r\n\t\"passengers\" : [{\r\n\t\t\t\"profileId\" : 4,\r\n\t\t\t\"productId\" : 21536,\r\n\t\t\t\"nrOfPassengers\" : 2\r\n\t\t},{\r\n\t\t\t\"profileId\" : 2,\r\n\t\t\t\"productId\" : 21531,\r\n\t\t\t\"nrOfPassengers\" : 1\r\n\t\t}\r\n\t],\r\n\t\"amount\" : 122.00\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/order",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Order single ticket to start now"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ST01_1APITA.register.card.And.buy.ticketChangeCancel",
+			"item": [
+				{
+					"name": "order Future enk az",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9a560809-7e81-42b3-b781-91855563c5cc",
+								"exec": [
+									"var tm = new Date();\r",
+									"tm.setHours(tm.getHours()+2);\r",
+									"pm.environment.set(\"startDate\",  tm.toISOString());\r",
+									"console.log(\"Time plus 2 hours:\" + tm.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7960d996-54c9-45c9-93de-4a36bafe7d58",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									"",
+									"pm.environment.set(\"MQTTCounter\", \"1\"); //used for retries in fetching ticketRef from MQTT",
+									"",
+									"pm.test(\"TraceId returned for future ticket\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ticketDistributionType\" : \"MOBILETICKET\",\r\n\t\"actionId\" : 1,\r\n\t\"paymentMethod\" : \"VISA\",\r\n\t\"paymentReference\" : \"{{paymentRef}}\",\r\n\t\"startDate\" : \"{{startDate}}\",\r\n\t\"nrOfZones\" : 5,\r\n\t\"validAllZones\" : true,\r\n\t\"passengers\" : [{\r\n\t\t\t\"profileId\" : 4,\r\n\t\t\t\"productId\" : 21536,\r\n\t\t\t\"nrOfPassengers\" : 2\r\n\t\t},{\r\n\t\t\t\"profileId\" : 2,\r\n\t\t\t\"productId\" : 21531,\r\n\t\t\t\"nrOfPassengers\" : 1\r\n\t\t}\r\n\t],\r\n\t\"amount\" : 122.00\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/order",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Order future ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "MQTT hent ticketRef",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+								"exec": [
+									"if((responseCode.code === 200) && ( pm.expect(pm.response.text()).to.include(\"ticketRef\"))) //or any other success condition",
+									"{",
+									"",
+									"    postman.clearEnvironmentVariable(\"ticketRef\");",
+									"    ",
+									"   ",
+									"    ",
+									"    pm.test(\"Response contains ticketRef\", function () {",
+									"        pm.expect(pm.response.text()).to.include(\"ticketRef\");",
+									"    });",
+									"",
+									"    var jsonData = JSON.parse(responseBody);",
+									"",
+									"    postman.setEnvironmentVariable(\"ticketRef\", JSON.parse(jsonData[0]).ticketRef);",
+									"",
+									"    postman.setNextRequest('fetch ticket');",
+									"    ",
+									"}",
+									"else",
+									"{",
+									"    var counter = parseInt(postman.getEnvironmentVariable(\"MQTTCounter\"))+1;",
+									"    if(counter>4){",
+									"        console.log(\"Too many tries, bailing out\");",
+									"        postman.setNextRequest(null);",
+									"    }",
+									"    ",
+									"    postman.setEnvironmentVariable(\"MQTTCounter\", counter);",
+									"    tests[\"ticketRef not found, trying again\"] = true; //fake test for info",
+									"    ",
+									"    setTimeout(function(){",
+									"        console.log('waiting a second');",
+									"        postman.setNextRequest('MQTT hent ticketRef');",
+									"    }, 1000);",
+									"    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f91121dd-1e24-4398-8447-6e8ae72fe32a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+							"protocol": "https",
+							"host": [
+								"apita-testclient",
+								"dev",
+								"transhub",
+								"io"
+							],
+							"path": [
+								"get",
+								"{{instanceId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fetch ticket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"pm.test(\"Ticket id is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"ticketId\");",
+									"});",
+									"pm.test(\"qrCode is returned\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"qrCode\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "eb35f5c3-9041-4f3b-ae32-77db39cbf820",
+								"exec": [
+									"var d = new Date();",
+									"",
+									"pm.environment.set(\"currentTime\", d.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ticket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "24aac8e8-52ff-4e03-8d25-31b92ea4c45e",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6c62c833-831c-460f-8db0-81ae076fef36",
+								"exec": [
+									"var d = new Date();",
+									"",
+									"pm.environment.set(\"current_time\", d.toISOString());"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ticket cancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							},
+							{
+								"key": "CurrentTime",
+								"value": "{{current_time}}",
+								"type": "text"
+							},
+							{
+								"key": "ApiAuth",
+								"value": "{{apiauth}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}/cancel",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}",
+								"cancel"
+							]
+						},
+						"description": "Test canceling ticket"
+					},
+					"response": []
+				}
+			],
+			"description": "This is the only newman compatible, and it is because, biltkøb\nThis is dependen on APITA.register.card.And.buy.ST01 where we create instanceID and register the card, they should be set in the prerequest. \nIT works but we have to set the time oout out op to 30 second, and we should waite at least 1 second inbetween the requests, this is general.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2d20bb32-a1d7-42d2-b451-a2551a22e1f4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd7a5cbc-427c-4108-8db9-1a2b3de42039",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ST03_0Bug Testing Sprint 15",
+			"item": [
+				{
+					"name": "NYBIL454::Tell apita that cardinfo is sent to Nets Done",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17b69054-85b5-46d6-9ce2-acf9ee3c4ab1",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200; //should be 202 when sync implementation is removed",
+									"pm.test('Response contains traceID',function(){",
+									"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"traceId\"));    ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"paymentRef\": \"{{paymentRef}}\",\n    \"methodOfPayment\": \"VISA\"\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/paymentReference/done",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference",
+								"done"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RUTBIL-10377::distanceSonesErr ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"properties\" : {",
+									"        \"alternatives\" : {",
+									"            \"type\" : \"array\"",
+									"        },",
+									"        \"profiles\" : {",
+									"            \"type\" : \"array\"",
+									"        }",
+									"        ",
+									"    }",
+									"  ",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"pm.test(\"Test nr of Zones \", function(){",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.alternatives[0].nrOfZones).to.eql(3);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/distance/3/2?orderType=MOBILE_TICKET&validAllZones=false&stopIdFrom=NSR:StopPlace:3352&zoneIdFrom=RUT:ATariffZone:228&stopIdTo=NSR:StopPlace:5383&zoneIdTo=RUT:ATariffZone:231",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"distance",
+								"3",
+								"2"
+							],
+							"query": [
+								{
+									"key": "orderType",
+									"value": "MOBILE_TICKET"
+								},
+								{
+									"key": "validAllZones",
+									"value": "false"
+								},
+								{
+									"key": "stopIdFrom",
+									"value": "NSR:StopPlace:3352"
+								},
+								{
+									"key": "zoneIdFrom",
+									"value": "RUT:ATariffZone:228"
+								},
+								{
+									"key": "stopIdTo",
+									"value": "NSR:StopPlace:5383"
+								},
+								{
+									"key": "zoneIdTo",
+									"value": "RUT:ATariffZone:231"
+								}
+							]
+						},
+						"description": "GetDistance and nr of sones\nThe number of zones should be = 3;\nrelated to NYBIL-504"
+					},
+					"response": [
+						{
+							"name": "distanceStudent3Sones RUTBIL-10157",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"type": "text",
+										"value": "{{osversion}}"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/distance/3/2/?zoneIdFrom=RUT:TariffZone:225&zoneIdTo=RUT:TariffZone:233&orderType=PREPURCHASE&validallzones=true",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"distance",
+										"3",
+										"2",
+										""
+									],
+									"query": [
+										{
+											"key": "zoneIdFrom",
+											"value": "RUT:TariffZone:225"
+										},
+										{
+											"key": "zoneIdTo",
+											"value": "RUT:TariffZone:233"
+										},
+										{
+											"key": "orderType",
+											"value": "PREPURCHASE"
+										},
+										{
+											"key": "validallzones",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "distance/3/4 AllZFalse Eks",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"type": "text",
+										"value": "{{osversion}}"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/distance/3/2?orderType=MOBILE_TICKET&validAllZones=true",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"distance",
+										"3",
+										"2"
+									],
+									"query": [
+										{
+											"key": "orderType",
+											"value": "MOBILE_TICKET"
+										},
+										{
+											"key": "validAllZones",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Aug 2019 14:44:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "334"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "ReturnCode",
+									"value": "100"
+								},
+								{
+									"key": "TraceId",
+									"value": "d584ee6d-970f-4e06-be1c-2e734eaae933"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding, User-Agent"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"alternatives\": [\n        {\n            \"adjacentZones\": false,\n            \"nrOfZones\": 3\n        }\n    ],\n    \"profiles\": [\n        {\n            \"productOwnerId\": 3,\n            \"products\": [\n                {\n                    \"correctProfileId\": 1,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 246\n                        }\n                    ],\n                    \"productId\": 21226,\n                    \"productTemplateId\": 11\n                },\n                {\n                    \"correctProfileId\": 1,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 761\n                        }\n                    ],\n                    \"productId\": 21201,\n                    \"productTemplateId\": 10\n                },\n                {\n                    \"correctProfileId\": 1,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 1909\n                        }\n                    ],\n                    \"productId\": 21051,\n                    \"productTemplateId\": 4\n                },\n                {\n                    \"correctProfileId\": 1,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 19090\n                        }\n                    ],\n                    \"productId\": 21001,\n                    \"productTemplateId\": 2\n                }\n            ],\n            \"profileId\": 1,\n            \"profileTextId\": 1\n        },\n        {\n            \"productOwnerId\": 3,\n            \"products\": [\n                {\n                    \"correctProfileId\": 2,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 123\n                        }\n                    ],\n                    \"productId\": 21231,\n                    \"productTemplateId\": 11\n                },\n                {\n                    \"correctProfileId\": 2,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 381\n                        }\n                    ],\n                    \"productId\": 21206,\n                    \"productTemplateId\": 10\n                },\n                {\n                    \"correctProfileId\": 2,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 575\n                        }\n                    ],\n                    \"productId\": 21076,\n                    \"productTemplateId\": 4\n                }\n            ],\n            \"profileId\": 2,\n            \"profileTextId\": 2\n        },\n        {\n            \"productOwnerId\": 3,\n            \"products\": [\n                {\n                    \"correctProfileId\": 3,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 1145\n                        }\n                    ],\n                    \"productId\": 21081,\n                    \"productTemplateId\": 4\n                }\n            ],\n            \"profileId\": 3,\n            \"profileTextId\": 3\n        },\n        {\n            \"productOwnerId\": 3,\n            \"products\": [\n                {\n                    \"correctProfileId\": 32,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 381\n                        }\n                    ],\n                    \"productId\": 21216,\n                    \"productTemplateId\": 10\n                },\n                {\n                    \"correctProfileId\": 32,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 575\n                        }\n                    ],\n                    \"productId\": 21091,\n                    \"productTemplateId\": 4\n                }\n            ],\n            \"profileId\": 32,\n            \"profileTextId\": 32\n        },\n        {\n            \"productOwnerId\": 3,\n            \"products\": [\n                {\n                    \"correctProfileId\": 4,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 123\n                        }\n                    ],\n                    \"productId\": 21236,\n                    \"productTemplateId\": 11\n                },\n                {\n                    \"correctProfileId\": 4,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 381\n                        }\n                    ],\n                    \"productId\": 21211,\n                    \"productTemplateId\": 10\n                },\n                {\n                    \"correctProfileId\": 4,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 954\n                        }\n                    ],\n                    \"productId\": 21086,\n                    \"productTemplateId\": 4\n                },\n                {\n                    \"correctProfileId\": 4,\n                    \"maxNrPassengers\": 1,\n                    \"prices\": [\n                        {\n                            \"nrOfZones\": 3,\n                            \"price\": 9540\n                        }\n                    ],\n                    \"productId\": 21011,\n                    \"productTemplateId\": 2\n                }\n            ],\n            \"profileId\": 4,\n            \"profileTextId\": 4\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "NYBIL-507::order ruter 1z ",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9a560809-7e81-42b3-b781-91855563c5cc",
+								"exec": [
+									"var d = new Date();",
+									"",
+									"pm.environment.set(\"startDate\", d.toISOString());",
+									"//pm.environment.set(\"startDate\", \"2019-04-11T17:44:06.836Z\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7960d996-54c9-45c9-93de-4a36bafe7d58",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ticketDistributionType\": \"MOBILETICKET\",\r\n  \"actionId\": 2,\r\n  \"startDate\": \"2019-08-22T13:20:00Z\",\r\n  \"amount\": 450,\r\n  \"nrOfZones\": 1,\r\n  \"validAllZones\": false,\r\n  \"zoneIdFrom\": \"RUT:TariffZone:227\",\r\n  \"zoneIdTo\": \"RUT:TariffZone:227\",\r\n  \"passengers\": [\r\n    {\r\n      \"profileId\": 3,\r\n      \"nrOfPassengers\": 1,\r\n      \"productId\": 21081\r\n    }\r\n  ],\r\n  \"paymentMethod\": \"VISA\",\r\n  \"paymentReference\": \"{{paymentRef}}\",\r\n  \"password\": \"qqqq\",\r\n  \"biometricHashId\": \"978d2052-9cd8-4295-8220-bd43e11a0d08\"\r\n}"
+						},
+						"url": {
+							"raw": "{{baseurl}}/order",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"order"
+							]
+						},
+						"description": "Testing RUTBIL-10393"
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-454::TraceID på asynchrone operationer PaymentRef",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d8687d5a-8723-4227-98f1-19e07ffb0d5b",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"var schema = {",
+									"  \"type\" : \"array\",",
+									"  \"minItems\" : 1,",
+									"  \"items\": {",
+									"    \"type\": \"object\",",
+									"    \"properties\" : {",
+									"        \"expirationDate\" : {\"type\" : \"string\"},",
+									"        \"methodOfPayment\" : {\"type\" : \"string\"},",
+									"        \"paymentRef\" : {\"type\" : \"string\"},",
+									"        \"createdDate\" : {\"type\" : \"string\"},",
+									"        \"paymentRefName\" : {\"type\" : \"string\"}",
+									"    }",
+									"  }",
+									"};",
+									"",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+									"});",
+									"",
+									"pm.test('Response contains paymentRef',function(){",
+									"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"paymentRef\"));    ",
+									"});",
+									"pm.test('Response contains traceID',function(){",
+									"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"traceId\"));    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/paymentReference",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL454:Get references from server ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d8687d5a-8723-4227-98f1-19e07ffb0d5b",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var jsonData = pm.response.json();",
+									"",
+									"var schema = {",
+									"  \"type\" : \"array\",",
+									"  \"minItems\" : 1,",
+									"  \"items\": {",
+									"    \"type\": \"object\",",
+									"    \"properties\" : {",
+									"        \"expirationDate\" : {\"type\" : \"string\"},",
+									"        \"methodOfPayment\" : {\"type\" : \"string\"},",
+									"        \"paymentRef\" : {\"type\" : \"string\"},",
+									"        \"createdDate\" : {\"type\" : \"string\"},",
+									"        \"paymentRefName\" : {\"type\" : \"string\"}",
+									"    }",
+									"  }",
+									"};",
+									"",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+									"});",
+									"",
+									"pm.test('Response contains paymentRef',function(){",
+									"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"paymentRef\"));    ",
+									"});",
+									"pm.test('Response contains traceID',function(){",
+									"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"traceId\"));    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "{{language}}",
+								"type": "text"
+							},
+							{
+								"key": "AppPlatform",
+								"value": "{{platform}}",
+								"type": "text"
+							},
+							{
+								"key": "AppVersionName",
+								"value": "{{appversion}}",
+								"type": "text"
+							},
+							{
+								"key": "OsVersion",
+								"value": "{{osversion}}",
+								"type": "text"
+							},
+							{
+								"key": "InstanceId",
+								"value": "{{instanceId}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/paymentReference",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"paymentReference"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL454::ticket confirm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL454::ticket cancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}/cancel",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-515::stop/109/closest Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"array\",",
+									"    \"items\" : {",
+									"        \"type\" : \"object\",",
+									"        \"properties\" : {",
+									"            \"ownerId\" : {\"type\" : \"number\"},",
+									"            \"municipalityName\" : {\"type\" : \"string\"},",
+									"            \"stopId\" : {\"type\" : \"string\"},",
+									"            \"stopName\" : {\"type\" : \"string\"},",
+									"            \"zoneId\" : {\"type\" : \"string\"},",
+									"            \"transportMode\" : {\"type\" : \"string\"}",
+									"        }",
+									"    }",
+									"  ",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/stop/109/closest?longitude=6.659553&latitude=58.298064",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"stop",
+								"109",
+								"closest"
+							],
+							"query": [
+								{
+									"key": "longitude",
+									"value": "6.659553"
+								},
+								{
+									"key": "latitude",
+									"value": "58.298064"
+								}
+							]
+						},
+						"description": "Testing test case NYBIL-515:Get the Closest Stop to given Coordinate\nIt is also related to NYBIL-511"
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-515::stop/109/closest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"array\",",
+									"    \"items\" : {",
+									"        \"type\" : \"object\",",
+									"        \"properties\" : {",
+									"            \"ownerId\" : {\"type\" : \"number\"},",
+									"            \"municipalityName\" : {\"type\" : \"string\"},",
+									"            \"stopId\" : {\"type\" : \"string\"},",
+									"            \"stopName\" : {\"type\" : \"string\"},",
+									"            \"zoneId\" : {\"type\" : \"string\"},",
+									"            \"transportMode\" : {\"type\" : \"string\"}",
+									"        }",
+									"    }",
+									"  ",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/stop/109/closest?longitude=6.659553&latitude=58.298064",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"stop",
+								"109",
+								"closest"
+							],
+							"query": [
+								{
+									"key": "longitude",
+									"value": "6.659553"
+								},
+								{
+									"key": "latitude",
+									"value": "58.298064"
+								}
+							]
+						},
+						"description": "Testing test case NYBIL-515:Get the Closest Stop to given Coordinate\nIt is also related to NYBIL-511"
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-511::ClosestStops andre transport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"type\" : \"array\",",
+									"    \"items\" : {",
+									"        \"type\" : \"object\",",
+									"        \"properties\" : {",
+									"            \"ownerId\" : {\"type\" : \"number\"},",
+									"            \"municipalityName\" : {\"type\" : \"string\"},",
+									"            \"stopId\" : {\"type\" : \"string\"},",
+									"            \"stopName\" : {\"type\" : \"string\"},",
+									"            \"zoneId\" : {\"type\" : \"string\"},",
+									"            \"transportMode\" : {\"type\" : \"string\"}",
+									"        }",
+									"    }",
+									"  ",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/closestStop/190?longitude=18.955326&latitude=69.649518&transportMode=water",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"closestStop",
+								"190"
+							],
+							"query": [
+								{
+									"key": "longitude",
+									"value": "18.955326"
+								},
+								{
+									"key": "latitude",
+									"value": "69.649518"
+								},
+								{
+									"key": "transportMode",
+									"value": "water"
+								}
+							]
+						},
+						"description": "Testing test case NYBIL-515:Get the Closest Stop to given Coordinate\nIt is also related to NYBIL-511"
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL454::ticket Refernce_cancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+								"exec": [
+									"tests[\"Status code is 202\"] = responseCode.code === 202;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/ticket/{{ticketRef}}/cancel",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"ticket",
+								"{{ticketRef}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-45::appversioninfo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "40000b6a-c727-4e80-bba6-efdb96508720",
+								"exec": [
+									"var moment = require('moment')\r",
+									"pm.globals.set(\"timestamp\", moment().utc())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "20a64f6f-4915-4a60-803a-53f4d89fa51c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "CurrentTime",
+								"type": "text",
+								"value": "{{timestamp}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/appversioninfo/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"appversioninfo",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "NYBIL-45::appversioninfo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"type": "text",
+										"value": "{{osversion}}"
+									},
+									{
+										"key": "CurrentTime",
+										"type": "text",
+										"value": "{{timestamp}}"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/appversioninfo/",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"appversioninfo",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 03 Sep 2019 14:44:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "ReturnCode",
+									"value": "100"
+								},
+								{
+									"key": "TraceId",
+									"value": "3db59f26-a8e0-4f81-90ec-bb42fe29bc1a"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding, User-Agent"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appType\": 1,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 1,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 2,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 2,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 3,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 3,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 4,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 4,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 5,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 5,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 6,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 6,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 102,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 102,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 109,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 109,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 190,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"0.9\",\n        \"minSupportedVersion\": \"0.9\",\n        \"minRecommendedVersion\": \"0.9\"\n    },\n    {\n        \"appType\": 190,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 500,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.3\",\n        \"minSupportedVersion\": \"6.3\",\n        \"minRecommendedVersion\": \"6.3\"\n    },\n    {\n        \"appType\": 500,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.3\",\n        \"minSupportedVersion\": \"6.3\",\n        \"minRecommendedVersion\": \"6.3\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "NYBIL-45::appversioninfo TestCurrentTimePM90s",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "40000b6a-c727-4e80-bba6-efdb96508720",
+								"exec": [
+									"var moment = require('moment')\r",
+									"pm.globals.set(\"timestamp\", moment().utc())"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce033d54-d4f3-4359-80f4-363fa2d552cd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Include latestVersion\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"latestVersion\");",
+									"});",
+									"pm.test(\"Include minSupportedVersion\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"minSupportedVersion\");",
+									"});",
+									"pm.test(\"Include minRecommendedVersion\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"minRecommendedVersion\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "CurrentTime",
+								"type": "text",
+								"value": "{{timestamp}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/appversioninfo/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"appversioninfo",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "NYBIL-45::appversioninfo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept-Language",
+										"type": "text",
+										"value": "{{language}}"
+									},
+									{
+										"key": "AppPlatform",
+										"type": "text",
+										"value": "{{platform}}"
+									},
+									{
+										"key": "AppVersionName",
+										"type": "text",
+										"value": "{{appversion}}"
+									},
+									{
+										"key": "OsVersion",
+										"type": "text",
+										"value": "{{osversion}}"
+									},
+									{
+										"key": "CurrentTime",
+										"type": "text",
+										"value": "{{timestamp}}"
+									},
+									{
+										"key": "InstanceId",
+										"type": "text",
+										"value": "{{instanceId}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseurl}}/appversioninfo/",
+									"host": [
+										"{{baseurl}}"
+									],
+									"path": [
+										"appversioninfo",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 03 Sep 2019 14:44:10 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "ReturnCode",
+									"value": "100"
+								},
+								{
+									"key": "TraceId",
+									"value": "3db59f26-a8e0-4f81-90ec-bb42fe29bc1a"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding, User-Agent"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"appType\": 1,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 1,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 2,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 2,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 3,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 3,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 4,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 4,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 5,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 5,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 6,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 6,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 102,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 102,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 109,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 109,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 190,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"0.9\",\n        \"minSupportedVersion\": \"0.9\",\n        \"minRecommendedVersion\": \"0.9\"\n    },\n    {\n        \"appType\": 190,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.5\",\n        \"minSupportedVersion\": \"6.5\",\n        \"minRecommendedVersion\": \"6.5\"\n    },\n    {\n        \"appType\": 500,\n        \"appPlatform\": \"android\",\n        \"latestVersion\": \"6.3\",\n        \"minSupportedVersion\": \"6.3\",\n        \"minRecommendedVersion\": \"6.3\"\n    },\n    {\n        \"appType\": 500,\n        \"appPlatform\": \"ios\",\n        \"latestVersion\": \"6.3\",\n        \"minSupportedVersion\": \"6.3\",\n        \"minRecommendedVersion\": \"6.3\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "NYBIL-45::appversioninfo Negative",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b4ef7c3-343a-4fc2-a229-0a7a2033d041",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c075d09e-70b0-430e-885b-b6eae3e96f83",
+								"exec": [
+									"var moment = require('moment')\r",
+									"pm.globals.set(\"timestamp\", moment().utc())"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "hiela"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "83.17"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "22.12"
+							},
+							{
+								"key": "CurrentTime",
+								"type": "text",
+								"value": "{{timestamp}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/appversioninfo/",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"appversioninfo",
+								""
+							]
+						},
+						"description": "Testing the negativ of NyBIl-45 where it should fail and return 400 as Language, OS and Appverion have bad values"
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-526 distance/3/1  allzone False",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"properties\" : {",
+									"        \"alternatives\" : {",
+									"            \"type\" : \"array\"",
+									"        },",
+									"        \"profiles\" : {",
+									"            \"type\" : \"array\"",
+									"        }",
+									"        ",
+									"    }",
+									"  ",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"pm.test(\"Body includes string adjacentZones\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"adjacentZones\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "CurrentTime",
+								"type": "text",
+								"value": "{{timestamp}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/distance/3/1/?zoneIdFrom=RUT:TariffZone:227&zoneIdTo=RUT:TariffZone:228&orderType=MOBILETICKET&validallzones=true",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"distance",
+								"3",
+								"1",
+								""
+							],
+							"query": [
+								{
+									"key": "zoneIdFrom",
+									"value": "RUT:TariffZone:227"
+								},
+								{
+									"key": "zoneIdTo",
+									"value": "RUT:TariffZone:228"
+								},
+								{
+									"key": "orderType",
+									"value": "MOBILETICKET"
+								},
+								{
+									"key": "validallzones",
+									"value": "true"
+								}
+							]
+						},
+						"description": "The response is missing the adjacentzones, , We should check it is in the response specialy when ValidAllZones is false"
+					},
+					"response": []
+				},
+				{
+					"name": "NYBIL-526 distance/3/1  allzone True",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "79bacf74-ee08-42d2-a05a-b932773ea9b0",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"var schema = {",
+									"    \"properties\" : {",
+									"        \"alternatives\" : {",
+									"            \"type\" : \"array\"",
+									"        },",
+									"        \"profiles\" : {",
+									"            \"type\" : \"array\"",
+									"        }",
+									"        ",
+									"    }",
+									"  ",
+									"};",
+									"",
+									"pm.test('Schema is valid', function() {",
+									"  pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;",
+									"});",
+									"pm.test(\"Body includes string adjacentZones\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"adjacentZones\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"type": "text",
+								"value": "{{language}}"
+							},
+							{
+								"key": "AppPlatform",
+								"type": "text",
+								"value": "{{platform}}"
+							},
+							{
+								"key": "AppVersionName",
+								"type": "text",
+								"value": "{{appversion}}"
+							},
+							{
+								"key": "OsVersion",
+								"type": "text",
+								"value": "{{osversion}}"
+							},
+							{
+								"key": "CurrentTime",
+								"type": "text",
+								"value": "{{timestamp}}"
+							},
+							{
+								"key": "InstanceId",
+								"type": "text",
+								"value": "{{instanceId}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseurl}}/distance/3/1/?zoneIdFrom=RUT:TariffZone:227&zoneIdTo=RUT:TariffZone:228&orderType=MOBILETICKET&validallzones=true",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"distance",
+								"3",
+								"1",
+								""
+							],
+							"query": [
+								{
+									"key": "zoneIdFrom",
+									"value": "RUT:TariffZone:227"
+								},
+								{
+									"key": "zoneIdTo",
+									"value": "RUT:TariffZone:228"
+								},
+								{
+									"key": "orderType",
+									"value": "MOBILETICKET"
+								},
+								{
+									"key": "validallzones",
+									"value": "true"
+								}
+							]
+						},
+						"description": "The response is missing the adjacentzones, , We should check it is in the response specialy when ValidAllZones is false"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "92e7ef04-821e-4a8f-9d14-35d8d4d9f13f",
+				"type": "text/javascript",
+				"exec": [
+					"var date = new Date()",
+					"var currentTime = date.toISOString()",
+					"pm.environment.set(\"current_time\", currentTime)",
+					"",
+					"",
+					"// Adding HMAC authentication",
+					"if(pm.environment.has(\"instanceName\")) {",
+					"    var hash = CryptoJS.HmacSHA256(pm.environment.get(\"instanceName\"), String(currentTime))",
+					"    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash)",
+					"    pm.environment.set(\"apiauth\", hashInBase64)",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bf663db6-83f0-41da-bf47-bbeb34af95a2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

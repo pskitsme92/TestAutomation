@@ -1,0 +1,1261 @@
+{
+	"info": {
+		"_postman_id": "ea70f19c-47cd-473d-be5b-e3cd973699f3",
+		"name": "ST01_0APITA.register.card.And.buy.ticket",
+		"description": "thIS IS THE ONLY NEWMAN COMPATIBLE, AND IT IS BECAUSE, BILTKØB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create instance",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6faf76d-7ca0-487a-a1fa-8f3ede96c9ef",
+						"exec": [
+							"postman.clearEnvironmentVariable(\"instanceId\");",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Status code is 201\"] = responseCode.code === 200;",
+							"",
+							"postman.setEnvironmentVariable(\"instanceId\", jsonData.instanceId);",
+							"postman.setEnvironmentVariable(\"instanceName\", jsonData.instanceName);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "{{language}}",
+						"type": "text"
+					},
+					{
+						"key": "AppPlatform",
+						"value": "{{platform}}",
+						"type": "text"
+					},
+					{
+						"key": "AppVersionName",
+						"value": "{{appversion}}",
+						"type": "text"
+					},
+					{
+						"key": "OsVersion",
+						"value": "{{osversion}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cloudMessageToken\":\"\",\r\n    \"phoneType\":\"LG Nexus 5\",\r\n    \"phoneHash\": \"\",\r\n    \"appTypeId\":1,\r\n    \"screenWidth\":320\r\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/instance",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"instance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6faf76d-7ca0-487a-a1fa-8f3ede96c9ef",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "{{language}}",
+						"type": "text"
+					},
+					{
+						"key": "AppPlatform",
+						"value": "{{platform}}",
+						"type": "text"
+					},
+					{
+						"key": "AppVersionName",
+						"value": "{{appversion}}",
+						"type": "text"
+					},
+					{
+						"key": "OsVersion",
+						"value": "{{osversion}}",
+						"type": "text"
+					},
+					{
+						"key": "InstanceId",
+						"value": "{{instanceId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"newPassword\" : \"1234\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/instance/password",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"instance",
+						"password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MQTT Register App",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a851979e-5a95-43cf-9d0d-71115eb8c2a7",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apita-testclient.dev.transhub.io/register/{{instanceId}}",
+					"protocol": "https",
+					"host": [
+						"apita-testclient",
+						"dev",
+						"transhub",
+						"io"
+					],
+					"path": [
+						"register",
+						"{{instanceId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Initiate card save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f186265c-2280-47fe-9c42-a3f179558880",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 202;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "{{language}}",
+						"type": "text"
+					},
+					{
+						"key": "AppPlatform",
+						"value": "{{platform}}",
+						"type": "text"
+					},
+					{
+						"key": "AppVersionName",
+						"value": "{{appversion}}",
+						"type": "text"
+					},
+					{
+						"key": "OsVersion",
+						"value": "{{osversion}}",
+						"type": "text"
+					},
+					{
+						"key": "InstanceId",
+						"value": "{{instanceId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"methodOfPayment\": \"VISA\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/paymentReference",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"paymentReference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MQTT hent paymentAction",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+						"exec": [
+							"postman.clearEnvironmentVariable(\"paymentRef\");",
+							"postman.clearEnvironmentVariable(\"urlPaymentSite\");",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"pm.test(\"Response includes paymentRef\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"paymentRef\");",
+							"});",
+							"",
+							"var one = JSON.parse(jsonData[0]);",
+							"",
+							"postman.setEnvironmentVariable(\"paymentRef\", one.content.paymentRef);",
+							"postman.setEnvironmentVariable(\"urlPaymentSite\", one.content.urlPaymentSite);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "047a5dec-d826-4814-97ca-24caf811d813",
+						"exec": [
+							"setTimeout(function(){console.log('waiting a second')}, 1000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+					"protocol": "https",
+					"host": [
+						"apita-testclient",
+						"dev",
+						"transhub",
+						"io"
+					],
+					"path": [
+						"get",
+						"{{instanceId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Load Nets-page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d623be0c-0d04-45db-9a93-099af5c951d8",
+						"exec": [
+							"postman.clearEnvironmentVariable(\"__VIEWSTATE\");",
+							"postman.clearEnvironmentVariable(\"__VIEWSTATEGENERATOR\");",
+							"postman.clearEnvironmentVariable(\"__EVENTVALIDATION\");",
+							"postman.clearEnvironmentVariable(\"__EVENTTARGET\");",
+							"",
+							"",
+							"var html = cheerio(responseBody),",
+							"__VIEWSTATE = html.find('#__VIEWSTATE').attr('value'),",
+							"__VIEWSTATEGENERATOR = html.find('#__VIEWSTATEGENERATOR').attr('value'),",
+							"__EVENTVALIDATION = html.find('#__EVENTVALIDATION').attr('value'),",
+							"__EVENTTARGET = html.find('#okButton').attr('name');",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"",
+							"postman.setEnvironmentVariable(\"__VIEWSTATE\", __VIEWSTATE);",
+							"postman.setEnvironmentVariable(\"__VIEWSTATEGENERATOR\", __VIEWSTATEGENERATOR);",
+							"postman.setEnvironmentVariable(\"__EVENTVALIDATION\", __EVENTVALIDATION);",
+							"postman.setEnvironmentVariable(\"__EVENTTARGET\", __EVENTTARGET);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b4fb8df8-310f-46ab-9025-7e93924f4f04",
+						"exec": [
+							"setTimeout(function(){console.log('waiting a second')}, 5000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.56 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,nb;q=0.8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{urlPaymentSite}}",
+					"host": [
+						"{{urlPaymentSite}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit card info Nets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5df94d79-6973-401d-9d83-f80a754e28a7",
+						"exec": [
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0c8623da-3a72-46d4-8e7a-ae1106e863af",
+						"exec": [
+							"setTimeout(function(){console.log('waiting a second')}, 5000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Referer",
+						"value": "{{urlPaymentSite}}",
+						"type": "text"
+					},
+					{
+						"key": "Origin",
+						"value": "https://test.epayment.nets.eu",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.56 Safari/537.36",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,nb;q=0.8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "__LASTFOCUS",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "__EVENTTARGET",
+							"value": "{{__EVENTTARGET}}",
+							"type": "text"
+						},
+						{
+							"key": "__EVENTARGUMENT",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "__VIEWSTATE",
+							"value": "{{__VIEWSTATE}}",
+							"type": "text"
+						},
+						{
+							"key": "__VIEWSTATEGENERATOR",
+							"value": "{{__VIEWSTATEGENERATOR}}",
+							"type": "text"
+						},
+						{
+							"key": "__VIEWSTATEENCRYPTED",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "__EVENTVALIDATION",
+							"value": "{{__EVENTVALIDATION}}",
+							"type": "text"
+						},
+						{
+							"key": "ctl09$cardNumber",
+							"value": "4925000000000004",
+							"type": "text"
+						},
+						{
+							"key": "ctl09$month",
+							"value": "12",
+							"type": "text"
+						},
+						{
+							"key": "ctl09$year",
+							"value": "19",
+							"type": "text"
+						},
+						{
+							"key": "ctl09$securityCode",
+							"value": "111",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{urlPaymentSite}}",
+					"host": [
+						"{{urlPaymentSite}}"
+					]
+				},
+				"description": "OBS! krever at f.eks 127.0.0.1 ok.ruter.no finnes i etc/hosts"
+			},
+			"response": []
+		},
+		{
+			"name": "Tell apita that cardinfo is sent to Nets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17b69054-85b5-46d6-9ce2-acf9ee3c4ab1",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202; //should be 202 when sync implementation is removed",
+							"",
+							"pm.test(\"traceId is returned\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "{{language}}",
+						"type": "text"
+					},
+					{
+						"key": "AppPlatform",
+						"value": "{{platform}}",
+						"type": "text"
+					},
+					{
+						"key": "AppVersionName",
+						"value": "{{appversion}}",
+						"type": "text"
+					},
+					{
+						"key": "OsVersion",
+						"value": "{{osversion}}",
+						"type": "text"
+					},
+					{
+						"key": "InstanceId",
+						"value": "{{instanceId}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"paymentRef\": \"{{paymentRef}}\",\n    \"methodOfPayment\": \"VISA\"\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/paymentReference/done",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"paymentReference",
+						"done"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MQTT hent paymentReference",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+						"exec": [
+							"//postman.clearEnvironmentVariable(\"paymentRef\");",
+							"//postman.clearEnvironmentVariable(\"urlPaymentSite\");",
+							"",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"pm.test(\"Response includes paymentRef\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"paymentRef\");",
+							"});",
+							"",
+							"var jsonData = JSON.parse(responseBody);",
+							"var one = JSON.parse(jsonData[0]);",
+							"",
+							"postman.setEnvironmentVariable(\"paymentRef\", one.content.paymentRef);",
+							"postman.setEnvironmentVariable(\"urlPaymentSite\", one.content.urlPaymentSite);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e9747257-6259-443c-b179-1ec4c5669e3c",
+						"exec": [
+							"setTimeout(function(){console.log('waiting a second')}, 1000);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+					"protocol": "https",
+					"host": [
+						"apita-testclient",
+						"dev",
+						"transhub",
+						"io"
+					],
+					"path": [
+						"get",
+						"{{instanceId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get references from server",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d8687d5a-8723-4227-98f1-19e07ffb0d5b",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"var jsonData = pm.response.json();",
+							"",
+							"var schema = {",
+							"  \"type\" : \"array\",",
+							"  \"minItems\" : 1,",
+							"  \"items\": {",
+							"    \"type\": \"object\",",
+							"    \"properties\" : {",
+							"        \"expirationDate\" : {\"type\" : \"string\"},",
+							"        \"methodOfPayment\" : {\"type\" : \"string\"},",
+							"        \"paymentRef\" : {\"type\" : \"string\"},",
+							"        \"createdDate\" : {\"type\" : \"string\"},",
+							"        \"paymentRefName\" : {\"type\" : \"string\"}",
+							"    }",
+							"  }",
+							"};",
+							"",
+							"",
+							"pm.test('Schema is valid', function() {",
+							"  pm.expect(tv4.validate(jsonData, schema)).to.be.true;",
+							"});",
+							"",
+							"pm.test('Response contains paymentRefName',function(){",
+							"  pm.expect(pm.response.text()).to.include(pm.environment.get(\"paymentRef\"));    ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "{{language}}",
+						"type": "text"
+					},
+					{
+						"key": "AppPlatform",
+						"value": "{{platform}}",
+						"type": "text"
+					},
+					{
+						"key": "AppVersionName",
+						"value": "{{appversion}}",
+						"type": "text"
+					},
+					{
+						"key": "OsVersion",
+						"value": "{{osversion}}",
+						"type": "text"
+					},
+					{
+						"key": "InstanceId",
+						"value": "{{instanceId}}",
+						"type": "text"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/paymentReference",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"paymentReference"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order enk az",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9a560809-7e81-42b3-b781-91855563c5cc",
+						"exec": [
+							"var d = new Date();",
+							"pm.environment.set(\"startDate\", d.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7960d996-54c9-45c9-93de-4a36bafe7d58",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;",
+							"",
+							"pm.environment.set(\"MQTTCounter\", \"1\"); //used for retries in fetching ticketRef from MQTT",
+							"",
+							"pm.test(\"TraceId returned\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "{{language}}"
+					},
+					{
+						"key": "AppPlatform",
+						"type": "text",
+						"value": "{{platform}}"
+					},
+					{
+						"key": "AppVersionName",
+						"type": "text",
+						"value": "{{appversion}}"
+					},
+					{
+						"key": "OsVersion",
+						"type": "text",
+						"value": "{{osversion}}"
+					},
+					{
+						"key": "InstanceId",
+						"type": "text",
+						"value": "{{instanceId}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"ticketDistributionType\" : \"MOBILETICKET\",\r\n\t\"actionId\" : 1,\r\n\t\"paymentMethod\" : \"VISA\",\r\n\t\"paymentReference\" : \"{{paymentRef}}\",\r\n\t\"savePaymentInfo\": true,\r\n\t\"startDate\" : \"{{startDate}}\",\r\n\t\"nrOfZones\" : 5,\r\n\t\"validAllZones\" : true,\r\n\t\"passengers\" : [{\r\n\t\t\t\"profileId\" : 4,\r\n\t\t\t\"productId\" : 21536,\r\n\t\t\t\"nrOfPassengers\" : 2\r\n\t\t},{\r\n\t\t\t\"profileId\" : 2,\r\n\t\t\t\"productId\" : 21531,\r\n\t\t\t\"nrOfPassengers\" : 1\r\n\t\t}\r\n\t],\r\n\t\"amount\" : 122.00\r\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/order",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"order"
+					]
+				},
+				"description": "Order single ticket to start now"
+			},
+			"response": []
+		},
+		{
+			"name": "MQTT hent ticketRef",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a179df32-2bf5-443b-8c74-db87a3ac9b5c",
+						"exec": [
+							"if((responseCode.code === 200) && ( pm.expect(pm.response.text()).to.include(\"ticketRef\"))) //or any other success condition",
+							"{",
+							"",
+							"    postman.clearEnvironmentVariable(\"ticketRef\");",
+							"    ",
+							"   ",
+							"    ",
+							"    pm.test(\"Response contains ticketRef\", function () {",
+							"        pm.expect(pm.response.text()).to.include(\"ticketRef\");",
+							"    });",
+							"",
+							"    var jsonData = JSON.parse(responseBody);",
+							"",
+							"    postman.setEnvironmentVariable(\"ticketRef\", JSON.parse(jsonData[0]).ticketRef);",
+							"",
+							"    postman.setNextRequest('fetch ticket');",
+							"    ",
+							"}",
+							"else",
+							"{",
+							"    var counter = parseInt(postman.getEnvironmentVariable(\"MQTTCounter\"))+1;",
+							"    if(counter>4){",
+							"        console.log(\"Too many tries, bailing out\");",
+							"        postman.setNextRequest(null);",
+							"    }",
+							"    ",
+							"    postman.setEnvironmentVariable(\"MQTTCounter\", counter);",
+							"    tests[\"ticketRef not found, trying again\"] = true; //fake test for info",
+							"    ",
+							"    setTimeout(function(){",
+							"        console.log('waiting a second');",
+							"        postman.setNextRequest('MQTT hent ticketRef');",
+							"    }, 1000);",
+							"    ",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f91121dd-1e24-4398-8447-6e8ae72fe32a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://apita-testclient.dev.transhub.io/get/{{instanceId}}",
+					"protocol": "https",
+					"host": [
+						"apita-testclient",
+						"dev",
+						"transhub",
+						"io"
+					],
+					"path": [
+						"get",
+						"{{instanceId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch ticket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5210a06c-c8ae-450d-bc0d-d193f174fec7",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"pm.test(\"Ticket id is returned\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"ticketId\");",
+							"});",
+							"pm.test(\"qrCode is returned\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"qrCode\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eb35f5c3-9041-4f3b-ae32-77db39cbf820",
+						"exec": [
+							"var d = new Date();",
+							"",
+							"pm.environment.set(\"currentTime\", d.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "{{language}}"
+					},
+					{
+						"key": "AppPlatform",
+						"type": "text",
+						"value": "{{platform}}"
+					},
+					{
+						"key": "AppVersionName",
+						"type": "text",
+						"value": "{{appversion}}"
+					},
+					{
+						"key": "OsVersion",
+						"type": "text",
+						"value": "{{osversion}}"
+					},
+					{
+						"key": "InstanceId",
+						"type": "text",
+						"value": "{{instanceId}}"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"ticket",
+						"{{ticketRef}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ticket",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24aac8e8-52ff-4e03-8d25-31b92ea4c45e",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6c62c833-831c-460f-8db0-81ae076fef36",
+						"exec": [
+							"var d = new Date();",
+							"",
+							"pm.environment.set(\"currentTime\", d.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "{{language}}",
+						"type": "text"
+					},
+					{
+						"key": "AppPlatform",
+						"value": "{{platform}}",
+						"type": "text"
+					},
+					{
+						"key": "AppVersionName",
+						"value": "{{appversion}}",
+						"type": "text"
+					},
+					{
+						"key": "OsVersion",
+						"value": "{{osversion}}",
+						"type": "text"
+					},
+					{
+						"key": "InstanceId",
+						"value": "{{instanceId}}",
+						"type": "text"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseurl}}/ticket/{{ticketRef}}",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"ticket",
+						"{{ticketRef}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NYBIL-557:GetProfileShouldIncludePhoneNumber",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "9a560809-7e81-42b3-b781-91855563c5cc",
+						"exec": [
+							"var d = new Date();",
+							"pm.environment.set(\"startDate\", d.toISOString());"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7960d996-54c9-45c9-93de-4a36bafe7d58",
+						"exec": [
+							"tests[\"Status code is 202\"] = responseCode.code === 202;",
+							"",
+							"pm.environment.set(\"MQTTCounter\", \"1\"); //used for retries in fetching ticketRef from MQTT",
+							"",
+							"pm.test(\"TraceId returned\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"traceId\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "{{language}}"
+					},
+					{
+						"key": "AppPlatform",
+						"type": "text",
+						"value": "{{platform}}"
+					},
+					{
+						"key": "AppVersionName",
+						"type": "text",
+						"value": "{{appversion}}"
+					},
+					{
+						"key": "OsVersion",
+						"type": "text",
+						"value": "{{osversion}}"
+					},
+					{
+						"key": "InstanceId",
+						"type": "text",
+						"value": "{{instanceId}}"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "CurrentTime",
+						"value": "{{current_time}}",
+						"type": "text"
+					},
+					{
+						"key": "ApiAuth",
+						"value": "{{apiauth}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"ticketDistributionType\" : \"MOBILETICKET\",\r\n\t\"actionId\" : 1,\r\n\t\"paymentMethod\" : \"VISA\",\r\n\t\"paymentReference\" : \"{{paymentRef}}\",\r\n\t\"startDate\" : \"{{startDate}}\",\r\n\t\"nrOfZones\" : 5,\r\n\t\"validAllZones\" : true,\r\n\t\"passengers\" : [{\r\n\t\t\t\"profileId\" : 4,\r\n\t\t\t\"productId\" : 21536,\r\n\t\t\t\"nrOfPassengers\" : 2\r\n\t\t},{\r\n\t\t\t\"profileId\" : 2,\r\n\t\t\t\"productId\" : 21531,\r\n\t\t\t\"nrOfPassengers\" : 1\r\n\t\t}\r\n\t],\r\n\t\"amount\" : 122.00\r\n}"
+				},
+				"url": {
+					"raw": "{{baseurl}}/order",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"order"
+					]
+				},
+				"description": "Order single ticket to start now"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "59bc509d-26cf-4ecf-85a2-b9c7fe67d34b",
+				"type": "text/javascript",
+				"exec": [
+					"var date = new Date()",
+					"var currentTime = date.toISOString()",
+					"pm.environment.set(\"current_time\", currentTime)",
+					"",
+					"",
+					"// Adding HMAC authentication",
+					"if(pm.environment.has(\"instanceName\")) {",
+					"    var hash = CryptoJS.HmacSHA256(pm.environment.get(\"instanceName\"), String(currentTime))",
+					"    var hashInBase64 = CryptoJS.enc.Base64.stringify(hash)",
+					"    pm.environment.set(\"apiauth\", hashInBase64)",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "ad0a44de-2601-4561-8d85-806f9f479f1d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
