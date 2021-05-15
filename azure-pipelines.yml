@@ -16,7 +16,7 @@ stages:
       - task: Docker@2
         inputs:
            containerRegistry: 'Dockerhub'
-           repository: 'ghoshasish99/cits-test'
+           repository: 'pskitsme92/TestAutomation'
            command: 'buildAndPush'
            Dockerfile: '**/Dockerfile'
       - task: CopyFiles@2
