@@ -4,10 +4,9 @@
  * in parallel.
  */
 var newman = require('newman'); //require('../'),  
-const express = require('express');
-const appExpress = express();
+//const express = require('express');
+//const appExpress = express();
 
-const app = express();
 const port = 9000;
 var simulate = false;
 var commandLineArgs = require("command-line-args");
