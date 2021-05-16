@@ -15,6 +15,7 @@ var request = require("request");
 var fs = require("fs");
 var promise = require("promise");
 
+const webdriver = require('selenium-webdriver');
 
 const optionDefinitions = [
     { name: "file", alias: "f", type: String },
@@ -188,7 +189,7 @@ function uploadTestResultsToZAPI(testCasesList, authenticationBase64, customFiel
             });
         };
         uploadTestRunLog(0,authenticationBase64, testCasesList);
-    })
+    });
 }
 
 function submitTestLogPerTestRun(testRun,authenticationBase64, customFields) {
@@ -202,7 +203,7 @@ function submitTestLogPerTestRun(testRun,authenticationBase64, customFields) {
                         resolved(status);
                     }, function (err) {
                         handleErrorAndExit(err);
-                    })
+                    });
                 }
                 else {
                     searchTestCyclesAndSubmitResults(testRun,authenticationBase64).then(function (status) {
@@ -230,7 +231,7 @@ function searchTestCyclesAndSubmitResults(testRun,authenticationBase64) {
     return searchTestCycles(testRun,authenticationBase64).then(function (res) {
         return submitTestResultsToZAPI(testRun,authenticationBase64, res).then(function (res) {
             return res;
-        })
+        });
     }, function (err) {
         handleErrorAndExit(err);
         return false;
@@ -248,7 +249,7 @@ function submitTestResultsToZAPI(testRun, listTestRuns, authenticationBase64) {
                 submitTestCycleLogs(index + 1, listTestRuns);
             }, function (err) {
                 handleErrorAndExit(err);
-            })
+            });
         };
         submitTestCycleLogs(0, listTestRuns);
     });
@@ -281,7 +282,7 @@ function getFieldsOfTestCase(authenticationBase64) {
                 resolved(body);
             }
 
-        })
+        });
     });
 }
 
@@ -329,8 +330,8 @@ function searchTestCase(testRun, authenticationBase64) {
                     reject("Response code: " + response.statusCode + " with message " + response.statusMessage);
                 }
             }
-        })
-    })
+        });
+    });
 }
 
 function createAutomationTestCase(testRun, customFields,authenticationBase64) {
@@ -448,7 +449,7 @@ function createAutomationTestRun(testRun) {
         };
         request.post(opts, function (err, response, body) {
             if (err) {
-                reject("Error creating new automation test run: " + err)
+                reject("Error creating new automation test run: " + err);
             } else {
                 //upload test test results
                 var items = [];
@@ -466,7 +467,7 @@ function createAutomationTestRun(testRun) {
  */
 
 function submitATestCycleLog(testRun, item,authenticationBase64) {
-    newCycleValues = dumps()
+    newCycleValues = dumps();
     return new Promise(function (resolve, reject) {
         var opts = {
             url: creds.baseURL  + creds.zapiUrl + createCycleURL, // creds.zapiUrl + "/api/v3/projects/" + options.projectId + "/test-runs/" + item.id + "/auto-test-logs",
@@ -538,9 +539,9 @@ function getQTEObjectFromAgentParameterPath() {
                         strTestRun += "\nDYNAMIC \n";
                         strTestRun += "\n====================\n";
                         if (body.hasOwnProperty("dynamic")) {
-                            for (var k in body.dynamic) {
-                                if (body.dynamic.hasOwnProperty(k)) {
-                                    strTestRun += k + " has value \"" + body.dynamic[k] + "\"\n";
+                            for (var kk in body.dynamic) {
+                                if (body.dynamic.hasOwnProperty(kk)) {
+                                    strTestRun += kk + " has value \"" + body.dynamic[kk] + "\"\n";
                                 }
                             }
                         }
@@ -549,7 +550,7 @@ function getQTEObjectFromAgentParameterPath() {
                         console.log("====================");
                     }
                 }
-            })
+            });
         }
     }
 }
@@ -616,7 +617,7 @@ function newmanRunCollectionInDir(workdir){
                 }
             }); // the entire flow can be made more elegant using `async` module
         });
-        console.log("newmanRunCollectionInDir:End for each");    
+        //console.log("newmanRunCollectionInDir:End for each");    
     });
     console.log("newmanRunCollectionInDir:Out");
 }
@@ -637,16 +638,84 @@ function AddHourstoLocalTime() {
 
 }
 
-var dirname = "../";//__dirname +'../../../sb-apita-api/ContinuousTesting/System Test';
-console.log(" working dirname:" +dirname);
-newmanRunCollectionInDir(dirname);
-
-//appExpress.listen(port,()=>console.log(`Express appl listining at port ${port}`));
-//AddHourstoLocalTime();
-console.log("ends Process 0");
-//process.exit(0);
 
 function handleErrorAndExit(err) {
     console.log(err);
     process.exit(-1);
 }
+
+/*------------------------------------------------------------------------------------------------------------------------
+ Adding simple selenium test to support POC
+ PRE: npm install -g selenium-webdriver --Should be installed on Host  or added to docker
+
+------------------------------------------------------------------------------------------------------------------------*/
+
+
+async function runTestWithCaps (capabilities) {
+  let driver = new webdriver.Builder()
+    .usingServer('http://fornavnefternvn_zR4k3d:52TudCdBjYoTpfYGaXud@hub-cloud.browserstack.com/wd/hub')
+    .withCapabilities({
+      ...capabilities,
+      ...capabilities['browser'] && { browserName: capabilities['browser']}  // Because NodeJS language binding requires browserName to be defined
+    })
+    .build();
+  await driver.get("http://www.google.com");
+  const inputField = await driver.findElement(webdriver.By.name("q"));
+  await inputField.sendKeys("BrowserStack", webdriver.Key.ENTER); // this submits on desktop browsers
+  try {
+    await driver.wait(webdriver.until.titleMatches(/BrowserStack/i), 5000);
+  } catch (e) {
+    await inputField.submit(); // this helps in mobile browsers
+  }
+  try {
+    await driver.wait(webdriver.until.titleMatches(/BrowserStack/i), 5000);
+    console.log(await driver.getTitle());
+    await driver.executeScript(
+      'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Title contains BrowserStack!"}}'
+    );
+  } catch (e) {
+    await driver.executeScript(
+      'browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "Page could not load in time"}}'
+    );
+  }
+  await driver.quit();
+}
+const capabilities1 = {
+  'browser': 'chrome',
+  'browser_version': 'latest',
+  'os': 'Windows',
+  'os_version': '10',
+  'build': 'browserstack-build-1',
+  'name': 'Parallel test 1'
+};
+const capabilities2 = {
+	'browser': 'firefox',
+  'browser_version': 'latest',
+  'os': 'Windows',
+  'os_version': '10',
+  'build': 'browserstack-build-1',
+  'name': 'Parallel test 2'
+};
+const capabilities3 = {
+	'browser': 'safari',
+  'browser_version': 'latest',
+  'os': 'OS X',
+  'os_version': 'Big Sur',
+  'build': 'browserstack-build-1',
+  'name': 'Parallel test 3'
+};
+function SeleniumSimpleTest(){
+    
+    runTestWithCaps(capabilities1);
+    runTestWithCaps(capabilities2);
+    runTestWithCaps(capabilities3);
+}
+
+var dirname = "../";//__dirname +'../../../sb-apita-api/ContinuousTesting/System Test';
+console.log(" working dirname:" +dirname);
+newmanRunCollectionInDir(dirname);
+SeleniumSimpleTest();
+//appExpress.listen(port,()=>console.log(`Express appl listining at port ${port}`));
+//AddHourstoLocalTime();
+console.log("ends Process 0");
+//process.exit(0);
