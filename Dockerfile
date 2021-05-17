@@ -5,9 +5,9 @@ WORKDIR /TestAutomation
 COPY . .
 WORKDIR /TestAutomation/NewmanZapiProj
 RUN npm install npm
-RUN npm install Express
+RUN npm install express
 RUN npm install newman-reporter-junitfull
-RUN npm install
+RUN npm install selenium-webdriver
 
 VOLUME [ "/TestAutomation/reports" ]
 ENTRYPOINT [ ]
