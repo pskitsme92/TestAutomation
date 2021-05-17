@@ -1,9 +1,12 @@
-# This is sample automation script for Shell agent
+# This Test automation script for newman test collection
 
 This script stimulates behavior
 
+ - Serach test folderes for test collection files
+ - Run newman for the list of collection files and save test execution results in Junit formate in Report Directory
  - Read results from json data file.
- - Report all results to Zephyr Jira Plugin. 
+ - Report all results to Zephyr Jira Plugin. (not called for now)
+ - Call Selenium test for the POC
 
 NAME
 
