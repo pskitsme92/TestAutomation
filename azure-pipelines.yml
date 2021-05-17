@@ -1,5 +1,5 @@
 // This is the deployment YAML file
-trigger:
+on:
 - master
 resources:
 - repo: self
