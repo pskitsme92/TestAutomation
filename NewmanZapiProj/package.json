@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "Express": "^3.0.1",
     "command-line-args": "^5.0.2",
     "express": "^4.17.1",
     "newman": "^4.5.5",
