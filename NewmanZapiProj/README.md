@@ -1,7 +1,8 @@
-# This is sample automation script for Shell agent
-
+# This part of test automation framework 
 This script stimulates behavior
 
+ - Pars the working directory for test collection
+ - Call newman on the found list and produce test reports
  - Read results from json data file.
  - Report all results to Zephyr Jira Plugin. 
 
