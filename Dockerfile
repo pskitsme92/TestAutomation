@@ -1,5 +1,5 @@
 FROM postman/newman:4
-LABEL maintainer="Pierre El-khoury <pierre.el-khoury@ruter.no>"
+LABEL maintainer="Pierre El-khoury <pierre.elkhoury@ufst.dk>"
 
 WORKDIR /TestAutomation
 COPY . .
