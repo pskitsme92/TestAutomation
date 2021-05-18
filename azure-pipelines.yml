@@ -1,4 +1,10 @@
 trigger:
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/_collection.xml'
+    searchFolder: '$(System.DefaultWorkingDirectory)/reports'
+    mergeTestResults: true
 - master
 resources:
 - repo: self
