@@ -8,8 +8,9 @@ RUN npm install npm
 RUN npm install express
 RUN npm install newman-reporter-junitfull
 RUN npm install selenium-webdriver
+RUN npm install
 
 VOLUME [ "/TestAutomation/reports" ]
 ENTRYPOINT [ ]
 #CMD ["/bin/bash"]
-CMD [ "node","newmanZapi", "-f", "newman-json-result.json", "-e", "SystemTest", "-o", "10000projctID"]
+CMD [ "node","newmanZapi", "-f", "newman-json-result.json", "-e", "SystemTestEnv", "-o", "10000projctID"]
