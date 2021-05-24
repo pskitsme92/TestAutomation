@@ -1,6 +1,6 @@
 {
     "email": "pierre.elkhoury@ruter.no",
-    "baseURL" : "https://jira.ruter.no",
+    "baseURL" : "https://jira.üfst.no",
     "zapiUrl" : "/rest/zapi/latest",     	    
     "createCycleURL" : "/cycle",
     "addTestsToCycleURL" : "/execution/addTestsToCycle",

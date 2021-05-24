@@ -8,7 +8,7 @@ const express = require('express');
 const appExpress = express();
 
 const port = 9000;
-var simulate = false;
+var simulate = true; //false;
 var commandLineArgs = require("command-line-args");
 var request = require("request");
 var fs = require("fs");
@@ -57,10 +57,11 @@ validateCommandLineArgs(options, function (err) {
 /**
  * loads login credentials from creds.json
  */
-var creds = JSON.parse(fs.readFileSync("creds.json", "utf8"));
+//var creds = JSON.parse(fs.readFileSync("creds.json", "utf8"));
 const authenticationbase64 = "Basic " + ("a2gxMjYxOjEwSnVscHNrPw==").toString("base64");
-//loginToQTest(creds).then(function () {   
-   doOurBusiness(authenticationbase64);
+/*loginToQTest(creds).then(function () {   
+  doOurBusiness(authenticationbase64);
+  */
 /*}).catch(function (err) {
     console.log(err);
     handleErrorAndExit(err);
@@ -560,7 +561,7 @@ function newmanRunCollectionInDir(workdir){
     var collectiondir = workdir+options.testenviroment+"/";
     console.log("Collection Dir:"+collectiondir);
     var enviromentDir = workdir + "EnvironmentFiles/";
-    console.log("ENviroment Directory:"+enviromentDir);
+    console.log("Enviroment Directory:"+enviromentDir);
     var reportDir = workdir + "reports/";
                                
     console.log("Report Directory:"+reportDir);
@@ -588,11 +589,11 @@ function newmanRunCollectionInDir(workdir){
                         // we load collection using require. for better validation and handling
                         // JSON.parse could be used
                         collection: require(collectionfile),
-                        environment: `${enviromentDir}APITA.TEST.postman_environment.json`,
+                       environment: `${enviromentDir}SIT01.postman_environment.json`,
                         globals:`${enviromentDir}MyWorkspace.postman_globals.json`,
                         'delay-request': 1000,
                         reporters: 'junitfull',
-                        timeout: 250000,
+                        timeout: 25000,
                         'timeout-request':1000,
                         'timeout-scrip':1000,
                         insecure: false,
@@ -710,10 +711,10 @@ function SeleniumSimpleTest(){
     runTestWithCaps(capabilities3);
 }
 
-var dirname = "../";//__dirname +'../../../sb-apita-api/ContinuousTesting/System Test';
+var dirname = "../";//../TestAutomation -- for debug;
 console.log(" working dirname:" +dirname);
 newmanRunCollectionInDir(dirname);
-SeleniumSimpleTest();
+//SeleniumSimpleTest();
 //appExpress.listen(port,()=>console.log(`Express appl listining at port ${port}`));
 //AddHourstoLocalTime();
 console.log("ends Process 0");

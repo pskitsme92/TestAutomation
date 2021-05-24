@@ -8,7 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}\\NewmanZapiProj\\newmanZapi.js"
+            "program": "${workspaceFolder}\\NewmanZapiProj\\newmanZapi.js",
+            "args": ["-f", "newman-json-result.json", "-e", "SystemTest", "-o", "10000projct"]
         }
     ]
 }
