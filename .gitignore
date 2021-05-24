@@ -80,7 +80,7 @@ fabric.properties
 Sandbox
 /TestAutomation/Docker0.backup
 /TestAutomation/Dockerfile - Copy_V1
-/TestAutomation/docker-compose.yml
+/TestAutomation/no_docker-compose.yml
 /TestAutomation/DataSourceGetDistanceInfo.csv
 /TestAutomation/NewmanZapiProj.zip
 /TestAutomation/runtest.bat

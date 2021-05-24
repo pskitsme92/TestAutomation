@@ -1,7 +1,7 @@
 {
-  "name": "submitnewmantest2ephyr",
+  "name": "runningnewmantest",
   "version": "1.0.0",
-  "description": "Takes JSON newman output and uploads to your qTest project",
+  "description": "Takes Newman collection  and run API test",
   "main": "newmanZapi.js",
   "scripts": {
     "setup": "npm install",
