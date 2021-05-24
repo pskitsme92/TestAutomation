@@ -8,6 +8,7 @@ RUN npm install npm
 RUN npm install express
 RUN npm install newman-reporter-junitfull
 RUN npm install selenium-webdriver
+RUN npm install
 
 VOLUME [ "/TestAutomation/reports" ]
 ENTRYPOINT [ ]

@@ -68,7 +68,7 @@ PREREQUISITES
 
   - Install nodejs from [here](https://nodejs.org/en/download/)
   - Configure nodejs path in your system environment variable.
-  - Update your credentials in qTest Manager inside **creds.json** file
+  - May need the Test manger setting if configured to update test caaes
 
 SETUP
 
