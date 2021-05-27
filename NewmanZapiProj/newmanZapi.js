@@ -3,12 +3,13 @@
  * @fileOverview This sample code illustrates how one can read all collection files within a directory and run them
  * in parallel.
  */
-var newman = require('newman'); //require('../'),  
+var newman = require('newman');
+//var junitfull = require('junit-full');
 const express = require('express');
 const appExpress = express();
 
 const port = 9000;
-var simulate = true; //false;
+var simulate = false;
 var commandLineArgs = require("command-line-args");
 var request = require("request");
 var fs = require("fs");

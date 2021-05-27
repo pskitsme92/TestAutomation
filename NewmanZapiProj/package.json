@@ -10,13 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "Express": "^3.0.1",
     "command-line-args": "^5.0.2",
-    "express": "^4.17.1",
-    "newman": "^4.5.5",
+    "express": "^3.0.1",
+    "newman": "^5.2.3",
     "newman-reporter-junitfull": "^1.1.1",
     "node-uuid": "^1.4.8",
-    "npm": "^7.13.0",
+    "npm": "^7.14.0",
     "promise": "^8.0.1",
     "request": "^2.85.0",
     "selenium-webdriver": "^4.0.0-beta.3"
