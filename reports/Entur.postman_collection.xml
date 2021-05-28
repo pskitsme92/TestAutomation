@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite id="0" hostname="https://api.entur.io" package="Queries" name="all_authorities" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:04.044" time="0.349">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="1" hostname="https://api.entur.io" package="Queries" name="all_stops_for_authority" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:04.393" time="0.623">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="2" hostname="https://api.entur.io" package="Queries" name="closest_stops" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:05.016" time="0.088">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="3" hostname="https://api.entur.io" package="Queries" name="line_info" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:05.104" time="0.065">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="4" hostname="https://api.entur.io" package="Queries" name="line_infoTroms Fylkeskommune" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:05.169" time="0.066">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="5" hostname="https://api.entur.io" package="Queries" name="line_info Bygdøyfergen" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:05.235" time="0.046">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="6" hostname="https://api.entur.io" package="Queries" name="stop_place_info" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:05.281" time="0.045">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="7" hostname="https://api.entur.io" package="Queries" name="trip_info" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:05.326" time="1.159">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+  <testsuite id="8" hostname="https://api.entur.io" package="" name="Schema" tests="0" failures="0" errors="0" timestamp="2021-05-28T12:21:06.485" time="0.073">
+    <properties>
+      <property name="mcid" value="D-ReferenceModel-19-01-16-15-52"/>
+      <property name="repositoryID" value="candidate-model"/>
+      <property name="graphDbId" value="mercury"/>
+      <property name="orcProcess" value="&quot;cgmesGeneration&quot;"/>
+      <property name="orcJob" value="&quot;gen-IGM&quot;"/>
+      <property name="projectId" value="11401"/>
+      <property name="versionId" value="13195"/>
+      <property name="GlobalSetUpOK" value="0"/>
+      <property name="GlobalMMSetUpOK" value="0"/>
+      <property name="GlobalMDSetUpOK" value="0"/>
+      <property name="GlobalGDBSetUpOK" value="0"/>
+      <property name="GlobalORCSetUpOK" value="0"/>
+      <property name="timestamp" value="2019-10-08T10:45:51.456Z"/>
+      <property name="APIKEY" value="PMAK-5d8a1736fc22c30036711d19-8b7747430f174bc5feebba9f512a0738a4"/>
+      <property name="c_uid" value="e0971308-dcdf-46d2-b3a1-0b66df344f0b"/>
+      <property name="currentDate" value="2021-05-28T10:21:02.726Z"/>
+    </properties>
+  </testsuite>
+</testsuites>

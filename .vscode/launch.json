@@ -5,11 +5,14 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "pwa-node",
             "request": "launch",
             "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
             "program": "${workspaceFolder}\\NewmanZapiProj\\newmanZapi.js",
-            "args": ["-f", "newman-json-result.json", "-e", "SystemTest", "-o", "10000projct"]
+	        "args": ["-f", "newman-json-result.json", "-e", "SystemTest", "-o", "10000projct"]
         }
     ]
 }

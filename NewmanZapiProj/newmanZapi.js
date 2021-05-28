@@ -3,10 +3,12 @@
  * @fileOverview This sample code illustrates how one can read all collection files within a directory and run them
  * in parallel.
  */
-var newman = require('newman');
-//var junitfull = require('junit-full');
+console.log("<<-------------   Program started ======================================>>");
+var newman = require('newman'); //require('../'),
 const express = require('express');
 const appExpress = express();
+var path = require('path');
+var module = require('module');
 
 const port = 9000;
 var simulate = false;
@@ -558,17 +560,18 @@ function getQTEObjectFromAgentParameterPath() {
 
 
 function newmanRunCollectionInDir(workdir){
+    workdir = workdir + "../";
     console.log( `Working Directory: ${workdir}`);    
-    var collectiondir = workdir+options.testenviroment+"/";
+    var collectiondir = workdir + options.testenviroment+"";
     console.log("Collection Dir:"+collectiondir);
-    var enviromentDir = workdir + "EnvironmentFiles/";
+    var enviromentDir = workdir + "EnvironmentFiles";
     console.log("Enviroment Directory:"+enviromentDir);
-    var reportDir = workdir + "reports/";
+    var reportDir = workdir + "reports";
                                
     console.log("Report Directory:"+reportDir);
     var files;
     fs.readdir(collectiondir, function (err, allfiles) {        
-        if (err) { throw err; }
+        if (err) { console.log(err.toString()); throw err; }
               
         // we filter all files with JSON file extension
         console.log("input files Bwfore filter:"+allfiles);       
@@ -580,7 +583,7 @@ function newmanRunCollectionInDir(workdir){
         return new Promise(function (resolve, reject) {
             allfiles.forEach(function (file) {
                 var outputfile = `${file}$`.substr(0,(file.length - 5) )+".xml";
-                outputfile = reportDir + outputfile ;
+                outputfile = reportDir + "/"+ outputfile ;
                 console.log("outputfile:" + outputfile);
                 var collectionfile = collectiondir+"/"+file; 
                 // if(file === "ST01_1APITA.register.card.And.buy.ticketChangeCancel.postman_collection.json" )
@@ -590,11 +593,11 @@ function newmanRunCollectionInDir(workdir){
                         // we load collection using require. for better validation and handling
                         // JSON.parse could be used
                         collection: require(collectionfile),
-                       environment: `${enviromentDir}SIT01.postman_environment.json`,
-                        globals:`${enviromentDir}MyWorkspace.postman_globals.json`,
+                       environment: `${enviromentDir}/SIT01.postman_environment.json`,
+                        globals:`${enviromentDir}/MyWorkspace.postman_globals.json`,
                         'delay-request': 1000,
                         reporters: 'junitfull',
-                        timeout: 25000,
+                        timeout: 250000,
                         'timeout-request':1000,
                         'timeout-scrip':1000,
                         insecure: false,
@@ -712,13 +715,18 @@ function SeleniumSimpleTest(){
     runTestWithCaps(capabilities3);
 }
 
-var dirname = "../";//../TestAutomation -- for debug;
-console.log(" working dirname:" +dirname);
+var dirname = "";//../TestAutomation -- for debug;*
+/*var loc = module.path.toString;
+console.log(" Check Loc :: " + loc);
+var dir = loc.substring(0, loc.length);
+
+console.log(" working dirname:" + dir);
+dirname = dir;*/
 newmanRunCollectionInDir(dirname);
 //SeleniumSimpleTest();
 //appExpress.listen(port,()=>console.log(`Express appl listining at port ${port}`));
 //AddHourstoLocalTime();
-console.log("ends Process 0");
+console.log("<<---------------------ends Process 0================>>");
 //process.exit(0);
 
 

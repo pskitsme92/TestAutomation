@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "e453c81a-6de8-4969-a040-0ee121d8abed",
+		"name": "Entur",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Queries",
+			"item": [
+				{
+					"name": "all_authorities",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "{\n    authorities {\n        id\n        name \n    }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						},
+						"description": "Journeyplanner authority listings"
+					},
+					"response": []
+				},
+				{
+					"name": "all_stops_for_authority",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query StopsForAuthority($authority: String!) {\n    authority(id: $authority) {\n    lines {\n      id,\n      publicCode\n      name\n      quays {\n        stopPlace {\n          id,\n          name, \n          tariffZones {\n            id,\n            name\n          }\n        }\n      }\n    }\n}\n}",
+								"variables": "{\n\t\"authority\": \"TRO:Authority:1\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closest_stops",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query ClosestStopsQuery($latitude: Float!, $longitude: Float!) {\n    nearest(latitude: $latitude, longitude: $longitude, filterByPlaceTypes: [stopPlace], multiModalMode: child) {\n        edges {\n            node {\n                distance\n                place {\n                    id... on StopPlace {\n                        id\n                    }\n                }\n            }\n        }\n    }\n}",
+								"variables": "{\n\t\"latitude\": 59.912432,\n\t\"longitude\": 10.748766\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "line_info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query lineQuery($authorities: [String]) {\n    lines(authorities: $authorities) {\n        id\n    }\n}",
+								"variables": "{ \n\t\"authorities\": [\"TRO:Authority:0190\"]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						},
+						"description": "Query lines and stops for a spesific authority"
+					},
+					"response": []
+				},
+				{
+					"name": "line_infoTroms Fylkeskommune",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query lineQuery($authorities: [String]) {\n    lines(authorities: $authorities) {\n        id\n    }\n}",
+								"variables": "{ \n\t\"authorities\": [\"TRO:Authority:1\"]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						},
+						"description": "Query lines and stops for a spesific authority Troms Fylkeskommune"
+					},
+					"response": []
+				},
+				{
+					"name": "line_info Bygdøyfergen",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query lineQuery($authorities: [String]) {\n    lines(authorities: $authorities) {\n        id\n    }\n}",
+								"variables": "{ \n\t\"authorities\": [\"NYC:Authority:1\"]\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						},
+						"description": "Query lines and stops for a spesific authority Bygdøyfergen"
+					},
+					"response": []
+				},
+				{
+					"name": "stop_place_info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query stopPlaceQuery($stopPlace: String!) {\n  stopPlace(id: $stopPlace) {\n    id\n    name\n  \tquays {\n      lines {\n        authority {\n          id\n        }\n        transportSubmode\n      }\n    }\n  }\n}\n",
+								"variables": "{ \n\t\"stopPlace\": \"NSR:StopPlace:4000\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						},
+						"description": "Query lines and stops for a spesific authority"
+					},
+					"response": []
+				},
+				{
+					"name": "trip_info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const now = new Date();",
+									"const formatted = now.toISOString()",
+									"postman.setGlobalVariable(\"currentDate\", formatted);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query tripPatterns($numTripPatterns: Int!, $from: Location!, $to: Location!, $dateTime: DateTime!, $arriveBy: Boolean!, $modes: [Mode] !, $transportSubmodes: [TransportSubmodeFilter], $maxPreTransitWalkDistance: Float, $walkSpeed: Float, $minimumTransferTime: Int, $useFlex: Boolean) {\n        trip (numTripPatterns: $numTripPatterns, wheelchair: false,from: $from, to: $to, dateTime: $dateTime, arriveBy: $arriveBy, modes: $modes, transportSubmodes: $transportSubmodes, maxPreTransitWalkDistance: $maxPreTransitWalkDistance, walkSpeed: $walkSpeed, minimumTransferTime: $minimumTransferTime, useFlex: $useFlex) {\n            tripPatterns {\n                startTime\n                endTime\n                duration\n                distance\n                legs {\n                    ...legFields\n                }\n            }  \n  }\n}\n \nfragment legFields on Leg {\n        mode\n        aimedStartTime\n        aimedEndTime\n        transportSubmode\n        expectedStartTime\n        expectedEndTime\n        realtime\n        distance\n        duration\n        interchangeFrom {\n            ...interchangeFields\n        }\n        interchangeTo {\n            ...interchangeFields\n        }\n        toEstimatedCall {\n            ...toEstimatedCallFields\n        }\n        fromEstimatedCall {\n            ...fromEstimatedCallFields\n        }\n        pointsOnLink {\n            points\n            length\n        }\n        fromPlace {\n            ...placeFields\n        }\n        toPlace {\n            ...placeFields\n        }\n        intermediateQuays {\n            id\n            name\n            stopPlace {\n                ...stopPlaceFields\n            }\n        }\n        authority {\n            id\n            name\n            url\n        }\n        operator {\n            id\n            name\n            url\n        }\n        line {\n            publicCode\n            name\n            transportSubmode\n            id\n        }\n        transportSubmode\n        serviceJourney {\n            ...serviceJourneyFields\n        }\n        fromEstimatedCall {\n            date\n        }\n        intermediateEstimatedCalls {\n            ...intermediateEstimatedCallFields\n        }\n        situations {\n            ...situationFields\n        }\n        ride\n    }\n    fragment interchangeFields on Interchange {\n        staySeated\n        guaranteed\n    }\n    fragment toEstimatedCallFields on EstimatedCall {\n        forBoarding\n        requestStop\n        forAlighting\n        destinationDisplay {\n            frontText\n        }\n        notices {\n            text\n        }\n    }\n    fragment fromEstimatedCallFields on EstimatedCall {\n        forBoarding\n        requestStop\n        forAlighting\n        destinationDisplay {\n            frontText\n        }\n        notices {\n            text\n        }\n    }\n    fragment placeFields on Place {\n        name\n        latitude\n        longitude\n        quay {\n            id\n            name\n            stopPlace {\n                ...stopPlaceFields\n            }\n            publicCode\n        }\n    }\n    fragment serviceJourneyFields on ServiceJourney {\n        id\n        publicCode\n        journeyPattern {\n            line {\n                transportSubmode\n                notices {\n                    text\n                }\n            }\n            notices {\n                text\n            }\n        }\n        notices {\n            text\n        }\n    }\n    fragment intermediateEstimatedCallFields on EstimatedCall {\n        quay {\n            id\n            name\n            stopPlace {\n                id\n            }\n        }\n        forAlighting\n        forBoarding\n        requestStop\n        cancellation\n        aimedArrivalTime\n        expectedArrivalTime\n        actualArrivalTime\n        aimedDepartureTime\n        expectedDepartureTime\n        actualDepartureTime\n    }\n    fragment stopPlaceFields on StopPlace {\n        id\n        name\n        description\n        tariffZones {\n            id\n        }\n        parent {\n            name\n            id\n        }\n    }\nfragment situationFields on PtSituationElement {\n    situationNumber\n    summary {\n        value\n    }\n    description {\n        value\n    }\n    detail {\n        value\n    }\n    validityPeriod {\n        startTime\n        endTime\n    }\n    reportType\n    infoLinks {\n        uri\n        label\n    }\n}\n",
+								"variables": "{\n    \"numTripPatterns\":10,\n    \"from\":{\n        \"place\":\"NSR:StopPlace:337\"\n    },\n    \"to\":{\n        \"place\":\"NSR:StopPlace:5546\"\n    },\n    \"dateTime\":\"{{currentDate}}\",\n    \"arriveBy\":true,\n    \"modes\":[],\n    \"transportSubmodes\":[],\n    \"maxPreTransitWalkDistance\":2000,\n    \"walkSpeed\":1.5,\n    \"minimumTransferTime\":60,\n    \"useFlex\":false\n}"
+							}
+						},
+						"url": {
+							"raw": "{{journeyplannerEndpoint}}",
+							"host": [
+								"{{journeyplannerEndpoint}}"
+							]
+						},
+						"description": "Query Entur for a trip from A to B"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schema",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query schemaQuery {\n  __schema {\n    queryType {\n      fields {\n        name\n        type {\n          kind\n          ofType {\n            kind\n            name\n          }\n        }\n      }\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{journeyplannerEndpoint}}",
+					"host": [
+						"{{journeyplannerEndpoint}}"
+					]
+				},
+				"description": "Retrieve the GraphQL Schema"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "journeyplannerEndpoint",
+			"value": "https://api.entur.io/journey-planner/v2/graphql"
+		}
+	]
+}
