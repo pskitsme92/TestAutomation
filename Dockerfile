@@ -7,10 +7,12 @@ WORKDIR /TestAutomation/NewmanZapiProj
 RUN npm install npm
 RUN npm install express
 RUN npm install newman-reporter-junitfull
+RUN npm install module
+RUN npm install path
 RUN npm install selenium-webdriver
-RUN npm install
+WORKDIR /TestAutomation
 
 VOLUME [ "/TestAutomation/reports" ]
-ENTRYPOINT [ ]
+ENTRYPOINT []
 #CMD ["/bin/bash"]
 CMD [ "node","newmanZapi", "-f", "newman-json-result.json", "-e", "SystemTest", "-o", "10000projctID"]
